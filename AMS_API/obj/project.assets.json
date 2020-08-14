@@ -2568,6 +2568,9 @@
       },
       "Service_Layer/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "Persistence_Layer": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Service_Layer.dll": {}
         },
@@ -5008,6 +5011,9 @@
       },
       "Service_Layer/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "Persistence_Layer": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Service_Layer.dll": {}
         },

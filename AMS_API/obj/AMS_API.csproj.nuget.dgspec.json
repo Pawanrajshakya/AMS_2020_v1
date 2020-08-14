@@ -100,7 +100,16 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Service_Layer\\Service_Layer.csproj",
         "projectName": "Service_Layer",
-        "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Service_Layer\\Service_Layer.csproj"
+        "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Service_Layer\\Service_Layer.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Persistence_Layer\\Persistence_Layer.csproj": {
+                "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Persistence_Layer\\Persistence_Layer.csproj"
+              }
+            }
+          }
+        }
       },
       "frameworks": {
         "net472": {}
