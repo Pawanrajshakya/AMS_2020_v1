@@ -1,0 +1,119 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\AMS_API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\AMS_API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\AMS_API.csproj",
+        "projectName": "AMS_API",
+        "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\AMS_API.csproj",
+        "packagesPath": "C:\\Users\\prsha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\prsha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj": {
+                "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj"
+              },
+              "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Service_Layer\\Service_Layer.csproj": {
+                "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Service_Layer\\Service_Layer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj",
+        "projectName": "Persistence_Layer",
+        "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Service_Layer\\Service_Layer.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Service_Layer\\Service_Layer.csproj",
+        "projectName": "Service_Layer",
+        "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Service_Layer\\Service_Layer.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj": {
+                "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}
