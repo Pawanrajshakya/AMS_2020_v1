@@ -2568,9 +2568,6 @@
       },
       "Service_Layer/1.0.0": {
         "type": "project",
-        "dependencies": {
-          "Persistence_Layer": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/Service_Layer.dll": {}
         },
@@ -5011,9 +5008,6 @@
       },
       "Service_Layer/1.0.0": {
         "type": "project",
-        "dependencies": {
-          "Persistence_Layer": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/Service_Layer.dll": {}
         },
@@ -9727,8 +9721,8 @@
     },
     "Persistence_Layer/1.0.0": {
       "type": "project",
-      "path": "../Persistence/Persistence_Layer.csproj",
-      "msbuildProject": "../Persistence/Persistence_Layer.csproj"
+      "path": "../Persistence_Layer/Persistence_Layer.csproj",
+      "msbuildProject": "../Persistence_Layer/Persistence_Layer.csproj"
     },
     "Service_Layer/1.0.0": {
       "type": "project",
@@ -9756,11 +9750,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\AMS_API.csproj",
+      "projectUniqueName": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\AMS_API\\AMS_API.csproj",
       "projectName": "AMS_API",
-      "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\AMS_API.csproj",
+      "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\AMS_API\\AMS_API.csproj",
       "packagesPath": "C:\\Users\\prsha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\obj\\",
+      "outputPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\AMS_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -9779,11 +9773,11 @@
       "frameworks": {
         "net472": {
           "projectReferences": {
-            "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj": {
-              "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Persistence\\Persistence_Layer.csproj"
+            "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Persistence_Layer\\Persistence_Layer.csproj": {
+              "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Persistence_Layer\\Persistence_Layer.csproj"
             },
-            "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Service_Layer\\Service_Layer.csproj": {
-              "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\Service_Layer\\Service_Layer.csproj"
+            "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Service_Layer\\Service_Layer.csproj": {
+              "projectPath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\Service_Layer\\Service_Layer.csproj"
             }
           }
         }

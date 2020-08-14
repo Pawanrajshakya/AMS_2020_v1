@@ -188,12 +188,6 @@
     <Compile Include="Services\_BaseService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Persistence\Persistence_Layer.csproj">
-      <Project>{addbdc8c-d6b6-4f46-9d5d-f69f493f601e}</Project>
-      <Name>Persistence_Layer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>

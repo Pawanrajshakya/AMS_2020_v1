@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS_API", "AMS_API\AMS_API.csproj", "{6EF0609E-B280-479C-9E34-7BE23BE26733}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence_Layer", "Persistence\Persistence_Layer.csproj", "{ADDBDC8C-D6B6-4F46-9D5D-F69F493F601E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence_Layer", "Persistence_Layer\Persistence_Layer.csproj", "{ADDBDC8C-D6B6-4F46-9D5D-F69F493F601E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service_Layer", "Service_Layer\Service_Layer.csproj", "{11570895-750D-4632-AE90-8183BED4F9A9}"
 EndProject

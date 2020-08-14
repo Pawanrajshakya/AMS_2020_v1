@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ezj5pLQcIeNMHc3YprgPgOHeJwcQaWBGNR77BdHndKkQgAzg1dTG/dJ15gHwVQ7y3+p3Rib5UOEwMkeQr0ZEw==",
+  "dgSpecHash": "Gj2wXlPsrVfDh+su8uUgSMG9NXt5VuXdSE5wUhLRCTVYXtZe5XROrKncyr315WPnHm5vgOAdDM5NBX3uRAB3Jg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS\\AMS_API\\AMS_API.csproj",
+  "projectFilePath": "C:\\Users\\prsha\\Documents\\AMS_20\\AMS_2020_v1\\AMS_API\\AMS_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prsha\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.0.1\\automapper.extensions.microsoft.dependencyinjection.8.0.1.nupkg.sha512",
