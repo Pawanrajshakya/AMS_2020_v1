@@ -472,3 +472,7 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_AP
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.csproj.CopyComplete
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.exe
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.pdb
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.ReportViewer.WebForms.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.ReportViewer.Common.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.ReportViewer.DataVisualization.dll

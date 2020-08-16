@@ -21,19 +21,24 @@ namespace AMS_API
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public string ConnectionString { get; }
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
 
-        public IConfiguration Configuration { get; }
+            ConnectionString = Configuration.GetConnectionString("DefaultConnection");
+
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(x => x.UseSqlServer(ConnectionString));
 
             services.AddCors();
 
@@ -64,6 +69,8 @@ namespace AMS_API
             services.AddScoped<IRelationshipService, RelationshipService>();
 
             services.AddScoped<IUserActivityService, UserActivityService>();
+
+            services.AddScoped<IReportService, ReportService>();
 
             services.AddScoped<LogUserActivity>();
 

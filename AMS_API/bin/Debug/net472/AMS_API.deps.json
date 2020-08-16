@@ -46,6 +46,7 @@
           "System.AppContext.Reference": "4.1.2.0",
           "System.Console.Reference": "4.0.2.0",
           "System.Core": "4.0.0.0",
+          "System.Data.DataSetExtensions": "4.0.0.0",
           "System.Data": "4.0.0.0",
           "System": "4.0.0.0",
           "System.Drawing": "4.0.0.0",
@@ -224,6 +225,11 @@
       "System.Core/4.0.0.0": {
         "compile": {
           ".NETFramework/v4.7.2/System.Core.dll": {}
+        }
+      },
+      "System.Data.DataSetExtensions/4.0.0.0": {
+        "compile": {
+          ".NETFramework/v4.7.2/System.Data.DataSetExtensions.dll": {}
         }
       },
       "System.Data/4.0.0.0": {
@@ -2143,6 +2149,7 @@
           "System.AppContext.Reference": "4.1.2.0",
           "System.Console.Reference": "4.0.2.0",
           "System.Core": "4.0.0.0",
+          "System.Data.DataSetExtensions": "4.0.0.0",
           "System.Data": "4.0.0.0",
           "System": "4.0.0.0",
           "System.Drawing": "4.0.0.0",
@@ -3611,6 +3618,26 @@
         "runtime": {
           "DataAccessHelper.dll": {}
         }
+      },
+      "Microsoft.ReportViewer.WebForms/10.0.0.0": {
+        "runtime": {
+          "Microsoft.ReportViewer.WebForms.dll": {}
+        }
+      },
+      "Microsoft.ReportViewer.Common/10.0.0.0": {
+        "runtime": {
+          "Microsoft.ReportViewer.Common.dll": {}
+        }
+      },
+      "Microsoft.ReportViewer.ProcessingObjectModel/10.0.0.0": {
+        "runtime": {
+          "Microsoft.ReportViewer.ProcessingObjectModel.dll": {}
+        }
+      },
+      "Microsoft.ReportViewer.DataVisualization/10.0.0.0": {
+        "runtime": {
+          "Microsoft.ReportViewer.DataVisualization.dll": {}
+        }
       }
     }
   },
@@ -4867,6 +4894,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Microsoft.ReportViewer.WebForms/10.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.ReportViewer.Common/10.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.ReportViewer.ProcessingObjectModel/10.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.ReportViewer.DataVisualization/10.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Microsoft.CSharp.Reference/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -4928,6 +4975,11 @@
       "sha512": ""
     },
     "System.Core/4.0.0.0": {
+      "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Data.DataSetExtensions/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

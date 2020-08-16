@@ -18,6 +18,7 @@ namespace Service_Layer.Interface
         ITransactionService Transaction { get; }
         IUserService User { get; }
         IUserActivityService UserActivity { get; }
+        IReportService Report { get; }
     }
 
 
