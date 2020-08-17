@@ -176,3 +176,8 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Debug\Service
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Debug\Service_Layer.csproj.CopyComplete
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Debug\Service_Layer.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Debug\Service_Layer.pdb
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Debug\System.Data.SqlClient.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.xml

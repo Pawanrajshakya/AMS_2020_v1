@@ -72,7 +72,7 @@ namespace AMS_API
 
             services.AddScoped<IReportService, ReportService>();
 
-            services.AddScoped<LogUserActivity>();
+            services.AddScoped<CustomActionFilter>();
 
 
 

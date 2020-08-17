@@ -465,7 +465,6 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_AP
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.exe.config
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.AssemblyInfoInputs.cache
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.AssemblyInfo.cs
-C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.csproj.CoreCompileInputs.cache
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.RazorAssemblyInfo.cache
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.RazorAssemblyInfo.cs
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.RazorTargetAssemblyInfo.cache
@@ -476,3 +475,5 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Micros
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.ReportViewer.Common.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.ReportViewer.ProcessingObjectModel.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Debug\net472\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\obj\Debug\net472\AMS_API.csproj.CoreCompileInputs.cache

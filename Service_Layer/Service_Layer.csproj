@@ -149,6 +149,7 @@
     <Compile Include="Dtos\Menu\MenusDto.cs" />
     <Compile Include="Dtos\Menu\MenuToEditDto.cs" />
     <Compile Include="Dtos\Menu\MenuToSaveDto.cs" />
+    <Compile Include="Dtos\Menu\UserMenuDto.cs" />
     <Compile Include="Dtos\Relationship\RelationshipDto.cs" />
     <Compile Include="Dtos\Relationship\RelationshipToEditDto.cs" />
     <Compile Include="Dtos\Relationship\RelationshipToSaveDto.cs" />

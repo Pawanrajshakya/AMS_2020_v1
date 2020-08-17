@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k7g3uDXycAlrAYmM+yVaHpeTYf/D8+TMaNGZ4SjHxDbWIojAAoEdxe4bm0yJW4W4RVYnA1AngZCdcjSgr7BDgQ==",
+  "dgSpecHash": "3qsotKeXsTIU7dAWzO5mE2OD+cy+Bnuz/OPulybvIgS6Qi9Yiz/DqfizYuGlSf2bAxBmlAloDn6yYHM+WezBBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\prsha\\Documents\\My Projects\\AMS_2020_v1\\AMS_API\\AMS_API.csproj",
   "expectedPackageFiles": [
@@ -77,8 +77,10 @@
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.entityframeworkcore\\2.2.6\\microsoft.entityframeworkcore.2.2.6.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\2.2.6\\microsoft.entityframeworkcore.abstractions.2.2.6.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\2.2.6\\microsoft.entityframeworkcore.analyzers.2.2.6.nupkg.sha512",
+    "C:\\Users\\prsha\\.nuget\\packages\\microsoft.entityframeworkcore.design\\2.2.6\\microsoft.entityframeworkcore.design.2.2.6.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\2.2.6\\microsoft.entityframeworkcore.relational.2.2.6.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\2.2.6\\microsoft.entityframeworkcore.sqlserver.2.2.6.nupkg.sha512",
+    "C:\\Users\\prsha\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\2.2.6\\microsoft.entityframeworkcore.tools.2.2.6.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\2.2.0\\microsoft.extensions.caching.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.extensions.caching.memory\\2.2.0\\microsoft.extensions.caching.memory.2.2.0.nupkg.sha512",
     "C:\\Users\\prsha\\.nuget\\packages\\microsoft.extensions.configuration\\2.2.0\\microsoft.extensions.configuration.2.2.0.nupkg.sha512",
