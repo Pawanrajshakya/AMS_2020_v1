@@ -16,19 +16,28 @@ namespace API.Helpers
         {
             var userName = context.HttpContext.User.Identity.Name;
 
-            var service = context.HttpContext.RequestServices.GetService<IServiceManager>();
-            
-            var userDto = await service.User.FindBy(userName);
-            
-            if (userDto == null || !userDto.IsActive || !userDto.IsVisible)
+            if (userName != null)
             {
-                context.Result = new BadRequestObjectResult("Invalid User " + userName);
+                var service = context.HttpContext.RequestServices.GetService<IServiceManager>();
+
+                var userDto = await service.User.FindBy(userName);
+
+                if (userDto == null || !userDto.IsActive || !userDto.IsVisible)
+                {
+                    context.Result = new BadRequestObjectResult("Invalid User " + userName);
+                    return;
+                }
+                
+                CurrentUser.User = userDto;
+
+                await SaveUserActivity(context, service, userDto);
+
+            }
+            else
+            {
+                context.Result = new BadRequestObjectResult("User not found.");
                 return;
             }
-            
-            CurrentUser.User = userDto;
-
-            await SaveUserActivity(context, service, userDto);
             
             await next();
         }
