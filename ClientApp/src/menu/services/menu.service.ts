@@ -36,7 +36,7 @@ export class MenuService extends Base {
         });
       });
     } else {
-      return this.http.get<IMenu>(this.baseUrl + 'menu\\' + id);
+      return this.http.get<IMenu>(this.baseUrl + 'menu/' + id);
     }
   }
 

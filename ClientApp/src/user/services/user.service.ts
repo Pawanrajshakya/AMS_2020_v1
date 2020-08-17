@@ -32,7 +32,7 @@ export class UserService extends Base{
         observe.next(user);
       });
     } else {
-      return this.http.get<IUser>(this.baseUrl + 'user\\' + id);
+      return this.http.get<IUser>(this.baseUrl + 'user//' + id);
     }
   }
 
