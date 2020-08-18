@@ -45,7 +45,7 @@ import { MenuModule } from 'src/menu/menu.module';
       JwtModule.forRoot({
          config: {
             tokenGetter: getToken,
-            whitelistedDomains: ['localhost:5000'],
+            whitelistedDomains: ['localhost:5000', '192.168.0.53'],
             blacklistedRoutes: []
          }
       }),
