@@ -111,8 +111,7 @@ export class ListUserComponent implements AfterViewInit, OnInit {
 
   onExport() {
     this.userService.export().subscribe((data) => {
-      saveAs(data, "test.xls");
-      console.log(data);
+      saveAs(data.body, data.headers.get('Content-Disposition').split(';')[1].replace('filename="','').replace('"',''));
     });
   }
 }
