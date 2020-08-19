@@ -141,7 +141,7 @@ namespace AMS_API
                 ));
             }
 
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().WithExposedHeaders("Content-Disposition"));
             app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
