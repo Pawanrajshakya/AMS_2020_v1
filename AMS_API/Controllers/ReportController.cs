@@ -47,5 +47,31 @@ namespace API.Controllers
             }
             return NotFound();
         }
+
+        [HttpPost]
+        [Route("{reportName}/{format}")]
+        public IActionResult GetReport(string reportName, string format)
+        {
+            try
+            {
+                if (format.ToUpper() == "EXCEL" || format.ToUpper() == "PDF")
+                {
+                    var connectionString = _config.GetConnectionString("DefaultConnection");
+
+                    var resportResult = _serviceManager.Report.Get(reportName, "Reports\\" + reportName + ".rdlc", format.ToUpper(), connectionString, "DataSet1");
+
+                    MemoryStream stream = new MemoryStream(resportResult.Content);
+
+                    var extension = format == "excel" ? ".xls" : ".pdf";
+
+                    return File(stream, "application/octet-stream", reportName + "_" + DateTime.Now.ToShortTimeString() + extension);
+                }
+            }
+            catch (Exception e)
+            {
+                return HandleException(e);
+            }
+            return NotFound();
+        }
     }
 }

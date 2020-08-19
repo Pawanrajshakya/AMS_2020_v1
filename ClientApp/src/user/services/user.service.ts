@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -57,5 +57,9 @@ export class UserService extends Base{
   changePassword(changePassword: IChangePassword) {
     console.log(changePassword);
     return this.http.post(this.baseUrl + 'user/changepassword', changePassword);
+  }
+
+  export(){
+    return this.http.post(this.baseUrl + 'report/userreport/excel', null, {responseType: 'blob'});
   }
 }

@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete/delete-user.component';
 import { AlertService } from 'src/_services/alert.service';
 import { ViewUserComponent } from '../view/view-user.component';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-list-user',
@@ -106,5 +107,12 @@ export class ListUserComponent implements AfterViewInit, OnInit {
 
   onView(id: number) {
     const dialogRef = this.matDialog.open(ViewUserComponent, { data: { id } });
+  }
+
+  onExport() {
+    this.userService.export().subscribe((data) => {
+      saveAs(data, "test.xls");
+      console.log(data);
+    });
   }
 }
