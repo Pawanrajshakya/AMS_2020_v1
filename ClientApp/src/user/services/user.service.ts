@@ -60,6 +60,6 @@ export class UserService extends Base{
   }
 
   export(){
-    return this.http.post(this.baseUrl + 'report/userreport/excel', null, {responseType: 'blob'});
+    return this.http.post(this.baseUrl + 'report/userreport/excel', null, {observe: 'response', responseType: 'blob'});
   }
 }
