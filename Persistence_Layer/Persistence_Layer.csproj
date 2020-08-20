@@ -146,9 +146,9 @@
     <Compile Include="Interfaces\IUserActivityRepository.cs" />
     <Compile Include="Interfaces\IUserHistoryRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="Migrations\20200816221912_inital_db_1.cs" />
-    <Compile Include="Migrations\20200816221912_inital_db_1.designer.cs">
-      <DependentUpon>20200816221912_inital_db_1.cs</DependentUpon>
+    <Compile Include="Migrations\20200820174329_inital_create.cs" />
+    <Compile Include="Migrations\20200820174329_inital_create.designer.cs">
+      <DependentUpon>20200820174329_inital_create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\Account.cs" />
@@ -193,6 +193,7 @@
   <ItemGroup>
     <Content Include="Readme.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
