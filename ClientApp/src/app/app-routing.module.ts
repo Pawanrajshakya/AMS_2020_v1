@@ -8,10 +8,15 @@ import { LoginComponent } from 'src/auth/components/login/login.component';
 import { ListRoleComponent } from 'src/role/components/list/list-role.component';
 import { MenuListComponent } from 'src/menu/components/menu-list/menu-list.component';
 import { MenuAddComponent } from 'src/menu/components/menu-add/menu-add.component';
+import { AddAccountComponent } from 'src/account/components/add-account/add-account.component';
+import { ListAccountComponent } from 'src/account/components/list-account/list-account.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'account', component: ListAccountComponent, canActivate: [AuthGuard] },
+    { path: 'addAccount', component: AddAccountComponent, canActivate: [AuthGuard] },
+    { path: 'addAccount/:id', component: AddAccountComponent, canActivate: [AuthGuard] },
     { path: 'addUser', component: AddUserComponent, canActivate: [AuthGuard] },
     { path: 'addUser/:id', component: AddUserComponent, canActivate: [AuthGuard] },
     { path: 'user', component: ListUserComponent, canActivate: [AuthGuard] },
