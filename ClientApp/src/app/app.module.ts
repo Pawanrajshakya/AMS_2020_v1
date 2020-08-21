@@ -23,6 +23,7 @@ import { UserModule } from 'src/user/user.module';
 import { AuthModule } from 'src/auth/auth.module';
 import { RoleModule } from 'src/role/role.module';
 import { MenuModule } from 'src/menu/menu.module';
+import { AccountModule } from 'src/account/account.module';
 
 @NgModule({
    declarations: [
@@ -42,6 +43,7 @@ import { MenuModule } from 'src/menu/menu.module';
       UserModule,
       RoleModule,
       MenuModule,
+      AccountModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: getToken,
