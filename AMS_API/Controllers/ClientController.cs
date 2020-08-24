@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using API.Controllers;
 using API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -10,12 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Service_Layer.Interface;
 
-namespace AMS_API.Controllers
+namespace API.Controllers
 {
-    //[ServiceFilter(typeof(CustomActionFilter))]
+    [ServiceFilter(typeof(CustomActionFilter))]
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class ClientController : BaseApiController
     {
 
