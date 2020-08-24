@@ -8,6 +8,7 @@ using Service_Layer.Dtos;
 using Service_Layer.Interface;
 using System.Linq;
 using Service_Layer.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service_Layer.Services
 {
@@ -40,6 +41,32 @@ namespace Service_Layer.Services
                 return null;
             AccountTypeDto entityDto = _mapper.Map<AccountTypeDto>(entity);
             return entityDto;
+        }
+
+        public async Task<List<AccountTypeDto>> Get()
+        {
+            try
+            {
+                List<AccountTypeDto> accountTypeDtos = new List<AccountTypeDto>();
+                var accountTypes = await this._unitOfWork
+                    .AccountType
+                    .GetAll()
+                    .Where(x => x.IsActive & x.IsVisible)
+                    .ToListAsync();
+                
+                foreach(var actype in accountTypes)
+                {
+                    AccountTypeDto accountTypeDto = _mapper.Map<AccountTypeDto>(actype);
+                    accountTypeDtos.Add(accountTypeDto);
+                }
+
+                return accountTypeDtos;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         // public async Task<IEnumerable<AccountTypeDto>> GetAll()
