@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/account/services/account.service';
+import { AlertService } from 'src/_services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-account',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListAccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private accountService: AccountService,
+    private alertService: AlertService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  onAddNew() {
+    this.route.navigate(['/addAccount']);
+  }
+
+  onExport() {
+    this.accountService.export().subscribe((data) => {
+      saveAs(data.body, data.headers.get('Content-Disposition').split(';')[1].replace('filename="','').replace('"',''));
+    });
+  }
 }

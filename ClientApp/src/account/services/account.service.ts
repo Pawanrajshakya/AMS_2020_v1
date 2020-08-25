@@ -3,7 +3,7 @@ import { Base } from "src/_services/base";
 import { environment } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { IAccount } from "../model/account-data";
+import { IAccount } from "../models/account-data";
 
 @Injectable({
   providedIn: "root",
@@ -26,5 +26,12 @@ export class AccountService extends Base {
     } else {
       return this.http.get<IAccount>(this.baseUrl + "account/" + id);
     }
+  }
+
+  export() {
+    return this.http.post(this.baseUrl + "report/accountreport/excel", null, {
+      observe: "response",
+      responseType: "blob",
+    });
   }
 }
