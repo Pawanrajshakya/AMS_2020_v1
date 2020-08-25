@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Service_Layer.Dtos;
 using Service_Layer.Interface;
 
 namespace API.Controllers
@@ -27,6 +28,20 @@ namespace API.Controllers
         public IActionResult Search(string name, int top = 5)
         {
             return Ok(_serviceManager.Client.SearchByName(name, top));
-        } 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(ClientToSaveDto clientToSaveDto)
+        {
+            try
+            {
+                var id = await _serviceManager.Client.Add(clientToSaveDto);
+                return Ok(id);
+            }
+            catch (System.Exception e)
+            {
+                return HandleException(e);
+            }
+        }
     }
 }

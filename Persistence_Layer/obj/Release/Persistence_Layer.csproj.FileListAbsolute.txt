@@ -52,7 +52,6 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\bin\Release\S
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\bin\Release\System.Memory.xml
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\bin\Release\System.Numerics.Vectors.xml
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence_Layer.csprojAssemblyReference.cache
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence_Layer.csproj.CoreCompileInputs.cache
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence_Layer.csproj.CopyComplete
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence.dll

@@ -26,6 +26,11 @@ namespace Service_Layer.Services
 
             Client Client = _mapper.Map<Client>(entity);
 
+            Client.IsActive = true;
+            Client.IsVisible = true;
+            Client.BusinessId = 1;
+            Client.CreatedBy = CurrentUser.User.Id;
+
             _unitOfWork.Client.Add(Client);
 
             _unitOfWork.Complete();

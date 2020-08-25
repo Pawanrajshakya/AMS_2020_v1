@@ -8,6 +8,7 @@ using Service_Layer.Dtos;
 using Service_Layer.Interface;
 using Persistence_Layer.Models;
 using Service_Layer.Helpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service_Layer.Services
 {
@@ -40,6 +41,32 @@ namespace Service_Layer.Services
                 return null;
             RelationshipDto RelationshipDto = _mapper.Map<RelationshipDto>(entity);
             return RelationshipDto;
+        }
+
+        public async Task<List<RelationshipDto>> Get()
+        {
+            try
+            {
+                List<RelationshipDto> relationshipDtos = new List<RelationshipDto>();
+                var relationships = await this._unitOfWork
+                    .Relationship
+                    .GetAll()
+                    .Where(x => x.IsActive & x.IsVisible)
+                    .ToListAsync();
+
+                foreach (var relationship in relationships)
+                {
+                    RelationshipDto relationshipDto = _mapper.Map<RelationshipDto>(relationship);
+                    relationshipDtos.Add(relationshipDto);
+                }
+
+                return relationshipDtos;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         // public async Task<IEnumerable<RelationshipDto>> GetAll()

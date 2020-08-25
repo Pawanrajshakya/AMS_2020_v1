@@ -20,6 +20,8 @@ namespace Service_Layer.Dtos
         public string ZipCode { get; set; }
         public int RelationshipId { get; set; } //Relationship with main account
         public int SortId { get; set; }
+        public string Description { get; set; }
+        public string Note { get; set; }
         public bool IsActive { get; set; }
 
         public override string ToString()

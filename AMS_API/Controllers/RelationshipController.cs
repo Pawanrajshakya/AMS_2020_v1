@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,18 +11,16 @@ namespace API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class AccountTypeController : BaseApiController
+    public class RelationshipController : BaseApiController
     {
-        public AccountTypeController(IServiceManager service, IConfiguration config)
-            : base(service, config)
+        public RelationshipController(IServiceManager service, IConfiguration config) : base(service, config)
         {
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _serviceManager.AccountType.Get());
+            return Ok(await _serviceManager.Relationship.Get());
         }
-
     }
 }
