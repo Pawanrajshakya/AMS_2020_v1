@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Persistence.Models;
 using Persistence_Layer.Interfaces;
 using Persistence_Layer.Models;
 using Service_Layer.Dtos;
@@ -19,13 +20,22 @@ namespace Service_Layer.Services
 
         public async Task<int> Add(AccountToSaveDto entity)
         {
-
-            if (await _unitOfWork.Account.Exists(x=>x.AccountNo == entity.AccountNo))
-            {
-                throw new Exception("Already exists.");
-            }
-
+         
             Account entityToSave = _mapper.Map<Account>(entity);
+
+            AccountType accountType = await _unitOfWork.AccountType.Get(entity.AccountTypeId);
+
+            entityToSave.AccountNo = accountType.ShortName 
+                + DateTime.Today.Year.ToString()
+                + DateTime.Today.Month.ToString()
+                + DateTime.Today.Day.ToString()
+                + DateTime.Today.Hour.ToString()
+                + DateTime.Today.Minute.ToString()
+                + DateTime.Today.Second.ToString()
+                + DateTime.Today.Millisecond.ToString();
+
+            entityToSave.IsActive = true;
+            entityToSave.IsVisible = true;
 
             _unitOfWork.Account.Add(entityToSave);
 
@@ -136,5 +146,7 @@ namespace Service_Layer.Services
             AccountHistory accountHistory = _mapper.Map<AccountHistory>(account);
             _unitOfWork.AccountHistory.Add(accountHistory);
         }
+
+        
     }
 }
