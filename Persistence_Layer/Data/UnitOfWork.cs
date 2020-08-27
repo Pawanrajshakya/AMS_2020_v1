@@ -1,4 +1,6 @@
 using System;
+using Persistence.Interfaces;
+using Persistence.Repository;
 using Persistence_Layer.Interfaces;
 using Persistence_Layer.Repository;
 
@@ -25,6 +27,7 @@ namespace Persistence_Layer.Data
             UserHistory = new UserHistoryRepository(_context);
             UserActivity = new UserActivityRepository(_context);
             Menu = new MenuRepository(_context);
+            Control = new ControlRepository(_context);
         }
 
         public IAccountRepository Account { get; private set; }
@@ -53,7 +56,7 @@ namespace Persistence_Layer.Data
 
         public IUserActivityRepository UserActivity { get; private set; }
         public IMenuRepository Menu { get; private set; }
-
+        public IControlRepository Control { get; private set; }
         public int Complete()
         {
             try
