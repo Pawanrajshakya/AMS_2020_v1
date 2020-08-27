@@ -174,6 +174,7 @@
     <Compile Include="Helpers\PagedList.cs" />
     <Compile Include="Helpers\Params.cs" />
     <Compile Include="Helpers\ReportResult.cs" />
+    <Compile Include="Helpers\Utility.cs" />
     <Compile Include="Interface\IAccountService.cs" />
     <Compile Include="Interface\IAccountTypeService.cs" />
     <Compile Include="Interface\IBusinessService.cs" />
