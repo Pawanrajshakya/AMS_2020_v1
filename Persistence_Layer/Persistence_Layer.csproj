@@ -134,6 +134,7 @@
     <Compile Include="Interfaces\IAccountTypeRepository.cs" />
     <Compile Include="Interfaces\IBusinessRepository.cs" />
     <Compile Include="Interfaces\IClientRepository.cs" />
+    <Compile Include="Interfaces\IControlRepository.cs" />
     <Compile Include="Interfaces\IGroupRepository.cs" />
     <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\IRelationshipRepository.cs" />
@@ -146,9 +147,9 @@
     <Compile Include="Interfaces\IUserActivityRepository.cs" />
     <Compile Include="Interfaces\IUserHistoryRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="Migrations\20200820174329_inital_create.cs" />
-    <Compile Include="Migrations\20200820174329_inital_create.designer.cs">
-      <DependentUpon>20200820174329_inital_create.cs</DependentUpon>
+    <Compile Include="Migrations\20200825195350_Initial_0825.cs" />
+    <Compile Include="Migrations\20200825195350_Initial_0825.designer.cs">
+      <DependentUpon>20200825195350_Initial_0825.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\Account.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Models\Audit.cs" />
     <Compile Include="Models\Business.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Control.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Relationship.cs" />
@@ -175,6 +177,7 @@
     <Compile Include="Repository\AccountTypeRepository.cs" />
     <Compile Include="Repository\BusinessRepository.cs" />
     <Compile Include="Repository\ClientRepository.cs" />
+    <Compile Include="Repository\ControlRepository.cs" />
     <Compile Include="Repository\GroupRepository.cs" />
     <Compile Include="Repository\MenuRepository.cs" />
     <Compile Include="Repository\RelationshipRepository.cs" />
