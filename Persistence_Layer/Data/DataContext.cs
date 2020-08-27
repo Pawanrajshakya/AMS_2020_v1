@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Persistence.Models;
 using Persistence_Layer.Models;
+using System;
 
 namespace Persistence_Layer.Data
 {
@@ -24,6 +26,7 @@ namespace Persistence_Layer.Data
         public DbSet<UserHistory> UserHistories { get; set; }
         public DbSet<AccountHistory> AccountHistories { get; set; }
         public DbSet<UserActivity> UserActivities { get; set; }
+        public DbSet<Control> Controls { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -73,7 +76,7 @@ namespace Persistence_Layer.Data
                 new Relationship
                 {
                     Id = 1,
-                    Description = "father – somebody’s male parent"
+                    Description = "NA – Not Applicable"
                 },
 
                 new Relationship
@@ -162,25 +165,35 @@ namespace Persistence_Layer.Data
                 new Relationship
                 {
                     Id = 16,
+                    Description = "father – somebody’s male parent"
+
+                },
+                new Relationship
+                {
+                    Id = 17,
                     Description = "Other"
                 });
 
             modelBuilder.Entity<AccountType>().HasData(
-                new AccountType { Id = 1, Description = "Normal Account", GroupId = 1, SortId = 1 },
-                new AccountType { Id = 2, Description = "Cash Account", GroupId = 2, SortId = 2 },
-                new AccountType { Id = 3, Description = "Bank Account", GroupId = 2, SortId = 3 },
-                new AccountType { Id = 4, Description = "Income Account", GroupId = 2, SortId = 4 },
-                new AccountType { Id = 5, Description = "Expense Account", GroupId = 2, SortId = 5 },
-                new AccountType { Id = 6, Description = "Payable Account", GroupId = 2, SortId = 6 },
-                new AccountType { Id = 7, Description = "Receivable Account", GroupId = 2, SortId = 7 },
-                new AccountType { Id = 8, Description = "Assets Account", GroupId = 2, SortId = 8 },
-                new AccountType { Id = 9, Description = "Liabilities Account", GroupId = 2, SortId = 9 },
-                new AccountType { Id = 10, Description = "Other Account", GroupId = 3, SortId = 10 }
+                new AccountType { Id = 1, Description = "Normal Account", GroupId = 1, SortId = 1, ShortName = "NA" },
+                new AccountType { Id = 2, Description = "Cash Account", GroupId = 2, SortId = 2, ShortName = "CA" },
+                new AccountType { Id = 3, Description = "Bank Account", GroupId = 2, SortId = 3, ShortName = "BA" },
+                new AccountType { Id = 4, Description = "Income Account", GroupId = 2, SortId = 4, ShortName = "IA" },
+                new AccountType { Id = 5, Description = "Expense Account", GroupId = 2, SortId = 5, ShortName = "EA" },
+                new AccountType { Id = 6, Description = "Payable Account", GroupId = 2, SortId = 6, ShortName = "PA" },
+                new AccountType { Id = 7, Description = "Receivable Account", GroupId = 2, SortId = 7, ShortName = "RA" },
+                new AccountType { Id = 8, Description = "Assets Account", GroupId = 2, SortId = 8, ShortName = "AA" },
+                new AccountType { Id = 9, Description = "Liabilities Account", GroupId = 2, SortId = 9, ShortName = "LA" },
+                new AccountType { Id = 10, Description = "Other Account", GroupId = 3, SortId = 10, ShortName = "OA" }
             );
 
             modelBuilder.Entity<Client>().HasData(
                 new Client { Id = 1, BusinessId = 1, Name = "Internal Client" },
                 new Client { Id = 2, BusinessId = 1, Name = "Default Client" }
+                );
+
+            modelBuilder.Entity<Control>().HasData(
+                new Control { Id = 1, BusinessId = 1,  AccountNoLength = 20, CurrentDate = DateTime.Today, ReportFolderName = @"Reports\" }
                 );
         }
     }
