@@ -9,5 +9,7 @@ namespace Persistence_Layer.Models
         [ForeignKey("AccountId")]
         public Account Account { get; set; }
         public int AccountId { get; set; }
+
+        public string ShortName { get; set; }
     }
 }
