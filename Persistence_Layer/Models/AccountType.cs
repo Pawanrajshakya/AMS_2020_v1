@@ -11,5 +11,6 @@ namespace Persistence_Layer.Models
         public Group Group { get; set; }
 
         public int GroupId { get; set; }
+        public string ShortName { get; set; }
     }
 }
