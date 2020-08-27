@@ -1,3 +1,4 @@
+using Persistence.Interfaces;
 using System;
 
 namespace Persistence_Layer.Interfaces
@@ -18,6 +19,7 @@ namespace Persistence_Layer.Interfaces
         IUserHistoryRepository UserHistory { get; }
         IUserActivityRepository UserActivity { get; }
         IMenuRepository Menu { get; }
+        IControlRepository Control { get; }
         int Complete();
     }
 }
