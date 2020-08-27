@@ -30,10 +30,7 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Syste
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Memory.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Numerics.Vectors.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\DataAccessHelper.dll
-C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Data.SqlClient.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Persistence.pdb
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Persistence.dll.config
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\AutoMapper.xml
@@ -58,10 +55,13 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Syste
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Memory.xml
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Numerics.Vectors.xml
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.Relational.xml
-C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.SqlServer.xml
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Release\Service_Layer.csprojAssemblyReference.cache
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Release\Service_Layer.csproj.CoreCompileInputs.cache
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Release\Service_Layer.csproj.CopyComplete
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Release\Service_Layer.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\obj\Release\Service_Layer.pdb
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\System.Data.SqlClient.dll
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Service_Layer\bin\Release\Microsoft.EntityFrameworkCore.SqlServer.xml
