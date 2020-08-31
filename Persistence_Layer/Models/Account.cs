@@ -62,5 +62,10 @@ namespace Persistence_Layer.Models
         //public List<Transaction> Transactions { get; set; }
 
         public int SortId { get; set; }
+
+        public string Description { get; set; }
+        public string Note { get; set; }
+
+
     }
 }

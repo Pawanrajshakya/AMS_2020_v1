@@ -19,12 +19,17 @@ namespace Service_Layer.Services
 
         public async Task<int> Add(ClientToSaveDto entity)
         {
-            if (await _unitOfWork.Client.Exists(x=>x.Name == entity.Name))
+            if (await _unitOfWork.Client.Exists(x => x.Name == entity.Name))
             {
                 throw new Exception("Already exists.");
             }
 
             Client Client = _mapper.Map<Client>(entity);
+
+            Client.IsActive = true;
+            Client.IsVisible = true;
+            Client.BusinessId = 1;
+            Client.CreatedBy = CurrentUser.User.Id;
 
             _unitOfWork.Client.Add(Client);
 
@@ -76,6 +81,33 @@ namespace Service_Layer.Services
                 return true;
 
             return false;
+        }
+
+        public List<ClientDto> SearchByName(string Name, int Top = 5)
+        {
+            try
+            {
+                
+                List<ClientDto> clientDtos = new List<ClientDto>();
+
+                if (string.IsNullOrWhiteSpace(Name))
+                    return clientDtos;
+
+                var clients = this._unitOfWork.Client.FindAll(x => x.Name.Contains(Name) && x.IsActive && x.IsVisible).Take(Top).OrderBy(x=>x.Name).ToList();
+
+                foreach (var client in clients)
+                {
+                    var clientDto = this._mapper.Map<ClientDto>(client);
+                    clientDtos.Add(clientDto);
+                }
+
+                return clientDtos;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public async Task<bool> SoftDelete(int id)
