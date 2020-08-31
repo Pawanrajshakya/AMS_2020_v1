@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class Initial_0825 : Migration
+    public partial class Inital_Add_08312020 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -88,6 +88,31 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Groups", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    LastModifiedBy = table.Column<int>(nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(nullable: false),
+                    IsVisible = table.Column<bool>(nullable: false),
+                    IsActive = table.Column<bool>(nullable: false),
+                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
+                    ReferneceType = table.Column<string>(maxLength: 1, nullable: false),
+                    ReferenceId = table.Column<int>(nullable: false),
+                    Blob = table.Column<byte[]>(nullable: true),
+                    ImageType = table.Column<string>(maxLength: 5, nullable: true),
+                    Size = table.Column<int>(nullable: false),
+                    Comment = table.Column<string>(maxLength: 400, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -344,10 +369,8 @@ namespace Persistence.Migrations
                     RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true),
                     AccountNo = table.Column<string>(nullable: true),
                     ClientId = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
                     Balance = table.Column<decimal>(nullable: false),
                     AccountTypeId = table.Column<int>(nullable: false),
-                    IsMain = table.Column<bool>(nullable: false),
                     FirstName = table.Column<string>(maxLength: 255, nullable: true),
                     MiddleName = table.Column<string>(maxLength: 50, nullable: true),
                     LastName = table.Column<string>(maxLength: 255, nullable: true),
@@ -357,7 +380,8 @@ namespace Persistence.Migrations
                     Address2 = table.Column<string>(maxLength: 255, nullable: true),
                     State = table.Column<string>(maxLength: 2, nullable: true),
                     ZipCode = table.Column<string>(maxLength: 20, nullable: true),
-                    RelationshipId = table.Column<int>(nullable: false),
+                    IsMain = table.Column<bool>(nullable: false),
+                    RelationshipId = table.Column<int>(nullable: true),
                     SortId = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Note = table.Column<string>(nullable: true)
@@ -382,7 +406,7 @@ namespace Persistence.Migrations
                         column: x => x.RelationshipId,
                         principalTable: "Relationships",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -453,237 +477,237 @@ namespace Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "Businesses",
                 columns: new[] { "Id", "Address1", "Address2", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Name", "State", "ZipCode" },
-                values: new object[] { 1, "Address 1", "Address 2", 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Your Business Name", "zz", "zzzzz" });
+                values: new object[] { 1, "Address 1", "Address 2", 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Your Business Name", "zz", "zzzzz" });
 
             migrationBuilder.InsertData(
                 table: "Groups",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "SortId" },
-                values: new object[] { 1, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "External Group", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), 0 });
+                values: new object[] { 1, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "External Group", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), 0 });
 
             migrationBuilder.InsertData(
                 table: "Groups",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "SortId" },
-                values: new object[] { 2, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Internal Group", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), 0 });
+                values: new object[] { 2, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Internal Group", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), 0 });
 
             migrationBuilder.InsertData(
                 table: "Groups",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "SortId" },
-                values: new object[] { 3, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Other Group", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), 0 });
+                values: new object[] { 3, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Other Group", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), 0 });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 10, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "user", 6, 2, "User", "1" });
+                values: new object[] { 10, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "user", 6, 2, "User", "1" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 9, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "role", 6, 1, "Role", "1" });
+                values: new object[] { 9, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "role", 6, 1, "Role", "1" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 8, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "menu", 5, 1, "Menu", "1" });
+                values: new object[] { 8, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "menu", 5, 1, "Menu", "1" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 6, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "setting", 0, 6, "Setting", "1" });
+                values: new object[] { 6, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "setting", 0, 6, "Setting", "1" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 7, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "tool", 0, 7, "Tools", "1" });
+                values: new object[] { 7, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "tool", 0, 7, "Tools", "1" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 4, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "report", 0, 4, "Reports", "1,2,3" });
+                values: new object[] { 4, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "report", 0, 4, "Reports", "1,2,3" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 3, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "transaction", 0, 3, "Transaction", "1,2,3" });
+                values: new object[] { 3, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "transaction", 0, 3, "Transaction", "1,2,3" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 2, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "account", 0, 2, "Account", "1,2,3" });
+                values: new object[] { 2, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "account", 0, 2, "Account", "1,2,3" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 1, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "home", 0, 1, "Home", "1,2,3" });
+                values: new object[] { 1, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "home", 0, 1, "Home", "1,2,3" });
 
             migrationBuilder.InsertData(
                 table: "Menus",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "IconName", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Link", "MainMenuId", "SortId", "Title", "UserRoles" },
-                values: new object[] { 5, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), null, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "code", 0, 5, "Code System", "1" });
+                values: new object[] { 5, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), null, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "code", 0, 5, "Code System", "1" });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 11, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "sibling – a brother or sister", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 11, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "sibling – a brother or sister", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 17, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Other", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 17, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Other", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 16, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "father – somebody’s male parent", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 16, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "father – somebody’s male parent", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 15, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "grandmother – somebody’s parent’s mother", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 15, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "grandmother – somebody’s parent’s mother", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 14, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "grandfather – somebody’s parent’s father", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 14, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "grandfather – somebody’s parent’s father", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 13, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "younger brother / sister – brother / sister who is younger than you", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 13, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "younger brother / sister – brother / sister who is younger than you", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 12, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "elder brother/ sister – a brother/ sister who is older than you", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 12, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "elder brother/ sister – a brother/ sister who is older than you", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 10, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "sister – a girl or woman who has the same parents as another person", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 10, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "sister – a girl or woman who has the same parents as another person", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 3, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "parent – somebody’s father or mother", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 3, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "parent – somebody’s father or mother", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 8, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "spouse – somebody married to another person; husband or wife", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 8, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "spouse – somebody married to another person; husband or wife", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 7, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "wife – the woman who a man is married to", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 7, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "wife – the woman who a man is married to", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 6, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "husband – the man who a woman is married to", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 6, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "husband – the man who a woman is married to", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 5, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "daughter – somebody’s female child", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 5, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "daughter – somebody’s female child", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 4, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "son – somebody’s male child", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 4, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "son – somebody’s male child", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 2, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "mother – somebody’s female parent", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 2, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "mother – somebody’s female parent", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 1, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "NA – Not Applicable", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 1, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "NA – Not Applicable", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Relationships",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 9, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "brother – a boy or man who has the same parents as another person", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393) });
+                values: new object[] { 9, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "brother – a boy or man who has the same parents as another person", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325) });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 2, 0, new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394), "User", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394) });
+                values: new object[] { 2, 0, new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924), "User", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924) });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 1, 0, new DateTime(2020, 8, 25, 15, 53, 50, 254, DateTimeKind.Local).AddTicks(401), "Admin", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 256, DateTimeKind.Local).AddTicks(408) });
+                values: new object[] { 1, 0, new DateTime(2020, 8, 31, 10, 14, 29, 201, DateTimeKind.Local).AddTicks(4272), "Admin", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924) });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate" },
-                values: new object[] { 3, 0, new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394), "Viewer", true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394) });
+                values: new object[] { 3, 0, new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924), "Viewer", true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924) });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 1, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Normal Account", 1, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "NA", 1 });
+                values: new object[] { 1, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Normal Account", 1, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "NA", 1 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 2, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Cash Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "CA", 2 });
+                values: new object[] { 2, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Cash Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "CA", 2 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 3, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Bank Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "BA", 3 });
+                values: new object[] { 3, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Bank Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "BA", 3 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 4, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Income Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "IA", 4 });
+                values: new object[] { 4, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Income Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "IA", 4 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 5, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Expense Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "EA", 5 });
+                values: new object[] { 5, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Expense Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "EA", 5 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 6, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Payable Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "PA", 6 });
+                values: new object[] { 6, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Payable Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "PA", 6 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 7, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Receivable Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "RA", 7 });
+                values: new object[] { 7, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Receivable Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "RA", 7 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 8, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Assets Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "AA", 8 });
+                values: new object[] { 8, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Assets Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "AA", 8 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 9, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Liabilities Account", 2, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "LA", 9 });
+                values: new object[] { 9, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Liabilities Account", 2, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "LA", 9 });
 
             migrationBuilder.InsertData(
                 table: "AccountTypes",
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "Description", "GroupId", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "ShortName", "SortId" },
-                values: new object[] { 10, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Other Account", 3, true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "OA", 10 });
+                values: new object[] { 10, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Other Account", 3, true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "OA", 10 });
 
             migrationBuilder.InsertData(
                 table: "Clients",
                 columns: new[] { "Id", "BusinessId", "CreatedBy", "CreatedDate", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Name" },
-                values: new object[] { 1, 1, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Internal Client" });
+                values: new object[] { 1, 1, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Internal Client" });
 
             migrationBuilder.InsertData(
                 table: "Clients",
                 columns: new[] { "Id", "BusinessId", "CreatedBy", "CreatedDate", "IsActive", "IsVisible", "LastModifiedBy", "LastModifiedDate", "Name" },
-                values: new object[] { 2, 1, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), true, true, 0, new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393), "Default Client" });
+                values: new object[] { 2, 1, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), true, true, 0, new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325), "Default Client" });
 
             migrationBuilder.InsertData(
                 table: "Controls",
                 columns: new[] { "Id", "AccountNoLength", "BusinessId", "CurrentDate", "ReportFolderName" },
-                values: new object[] { 1, 20, 1, new DateTime(2020, 8, 25, 0, 0, 0, 0, DateTimeKind.Local), "Reports\\" });
+                values: new object[] { 1, 20, 1, new DateTime(2020, 8, 31, 0, 0, 0, 0, DateTimeKind.Local), "Reports\\" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Account_AccountTypeId",
@@ -743,6 +767,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Controls");
+
+            migrationBuilder.DropTable(
+                name: "Images");
 
             migrationBuilder.DropTable(
                 name: "Menus");

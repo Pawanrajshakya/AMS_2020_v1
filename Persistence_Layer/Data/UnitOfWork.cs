@@ -28,6 +28,7 @@ namespace Persistence_Layer.Data
             UserActivity = new UserActivityRepository(_context);
             Menu = new MenuRepository(_context);
             Control = new ControlRepository(_context);
+            Image = new ImageRepository(_context);
         }
 
         public IAccountRepository Account { get; private set; }
@@ -57,6 +58,8 @@ namespace Persistence_Layer.Data
         public IUserActivityRepository UserActivity { get; private set; }
         public IMenuRepository Menu { get; private set; }
         public IControlRepository Control { get; private set; }
+        public IImageRepository Image { get; private set; }
+
         public int Complete()
         {
             try
@@ -67,6 +70,11 @@ namespace Persistence_Layer.Data
             {
                 throw e;
             }
+        }
+
+        public void Rollback()
+        {
+            throw new NotImplementedException();
         }
 
         public void Dispose()

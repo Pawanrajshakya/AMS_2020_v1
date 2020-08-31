@@ -6,7 +6,7 @@ namespace Persistence_Layer.Models
 {
     public class Account : Audit
     {
-        
+        [Column(Order = 2)]
         public string AccountNo { get; set; }
 
         [ForeignKey("ClientId")]
@@ -14,7 +14,7 @@ namespace Persistence_Layer.Models
 
         public int ClientId { get; set; }
 
-        public string Name { get; set; }
+        //public string Name { get; set; }
 
         [DataType(DataType.Currency)]
         public decimal Balance { get; private set; }
@@ -24,7 +24,6 @@ namespace Persistence_Layer.Models
 
         public int AccountTypeId { get; set; }
 
-        public bool IsMain { get; set; } //One client can have multiple account
 
         #region Detail
         [MaxLength(255)]
@@ -54,9 +53,12 @@ namespace Persistence_Layer.Models
         [MaxLength(20)]
         public string ZipCode { get; set; }
 
+        public bool IsMain { get; set; } //One client can have multiple account
+
+
         public Relationship Relationship { get; set; }
 
-        public int RelationshipId { get; set; } //Relationship with main account
+        public int? RelationshipId { get; set; } //Relationship with main account
         #endregion
 
         //public List<Transaction> Transactions { get; set; }

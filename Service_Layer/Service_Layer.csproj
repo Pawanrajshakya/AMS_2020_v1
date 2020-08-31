@@ -204,6 +204,7 @@
     <Compile Include="Services\UserActivityService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\_BaseService.cs" />
+    <Compile Include="Attributes\NotZeroOrNullValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

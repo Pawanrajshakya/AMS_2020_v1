@@ -10,8 +10,8 @@ using Persistence_Layer.Data;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200825195350_Initial_0825")]
-    partial class Initial_0825
+    [Migration("20200831141430_Inital_Add_08312020")]
+    partial class Inital_Add_08312020
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,9 +47,52 @@ namespace Persistence.Migrations
                             Id = 1,
                             AccountNoLength = 20,
                             BusinessId = 1,
-                            CurrentDate = new DateTime(2020, 8, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            CurrentDate = new DateTime(2020, 8, 31, 0, 0, 0, 0, DateTimeKind.Local),
                             ReportFolderName = "Reports\\"
                         });
+                });
+
+            modelBuilder.Entity("Persistence.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte[]>("Blob");
+
+                    b.Property<string>("Comment")
+                        .HasMaxLength(400);
+
+                    b.Property<int>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("ImageType")
+                        .HasMaxLength(5);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<bool>("IsVisible");
+
+                    b.Property<int>("LastModifiedBy");
+
+                    b.Property<DateTime>("LastModifiedDate");
+
+                    b.Property<int>("ReferenceId");
+
+                    b.Property<string>("ReferneceType")
+                        .IsRequired()
+                        .HasMaxLength(1);
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
+
+                    b.Property<int>("Size");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("Persistence_Layer.Models.Account", b =>
@@ -100,14 +143,12 @@ namespace Persistence.Migrations
                     b.Property<string>("MiddleName")
                         .HasMaxLength(50);
 
-                    b.Property<string>("Name");
-
                     b.Property<string>("Note");
 
                     b.Property<string>("Phone")
                         .HasMaxLength(12);
 
-                    b.Property<int>("RelationshipId");
+                    b.Property<int?>("RelationshipId");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
@@ -241,13 +282,13 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Normal Account",
                             GroupId = 1,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "NA",
                             SortId = 1
                         },
@@ -255,13 +296,13 @@ namespace Persistence.Migrations
                         {
                             Id = 2,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Cash Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "CA",
                             SortId = 2
                         },
@@ -269,13 +310,13 @@ namespace Persistence.Migrations
                         {
                             Id = 3,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Bank Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "BA",
                             SortId = 3
                         },
@@ -283,13 +324,13 @@ namespace Persistence.Migrations
                         {
                             Id = 4,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Income Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "IA",
                             SortId = 4
                         },
@@ -297,13 +338,13 @@ namespace Persistence.Migrations
                         {
                             Id = 5,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Expense Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "EA",
                             SortId = 5
                         },
@@ -311,13 +352,13 @@ namespace Persistence.Migrations
                         {
                             Id = 6,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Payable Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "PA",
                             SortId = 6
                         },
@@ -325,13 +366,13 @@ namespace Persistence.Migrations
                         {
                             Id = 7,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Receivable Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "RA",
                             SortId = 7
                         },
@@ -339,13 +380,13 @@ namespace Persistence.Migrations
                         {
                             Id = 8,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Assets Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "AA",
                             SortId = 8
                         },
@@ -353,13 +394,13 @@ namespace Persistence.Migrations
                         {
                             Id = 9,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Liabilities Account",
                             GroupId = 2,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "LA",
                             SortId = 9
                         },
@@ -367,13 +408,13 @@ namespace Persistence.Migrations
                         {
                             Id = 10,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Other Account",
                             GroupId = 3,
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             ShortName = "OA",
                             SortId = 10
                         });
@@ -430,11 +471,11 @@ namespace Persistence.Migrations
                             Address1 = "Address 1",
                             Address2 = "Address 2",
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Name = "Your Business Name",
                             State = "zz",
                             ZipCode = "zzzzz"
@@ -479,11 +520,11 @@ namespace Persistence.Migrations
                             Id = 1,
                             BusinessId = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Name = "Internal Client"
                         },
                         new
@@ -491,11 +532,11 @@ namespace Persistence.Migrations
                             Id = 2,
                             BusinessId = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Name = "Default Client"
                         });
                 });
@@ -536,36 +577,36 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "External Group",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             SortId = 0
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Internal Group",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             SortId = 0
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Other Group",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             SortId = 0
                         });
                 });
@@ -614,11 +655,11 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "home",
                             MainMenuId = 0,
                             SortId = 1,
@@ -629,11 +670,11 @@ namespace Persistence.Migrations
                         {
                             Id = 2,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "account",
                             MainMenuId = 0,
                             SortId = 2,
@@ -644,11 +685,11 @@ namespace Persistence.Migrations
                         {
                             Id = 3,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "transaction",
                             MainMenuId = 0,
                             SortId = 3,
@@ -659,11 +700,11 @@ namespace Persistence.Migrations
                         {
                             Id = 4,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "report",
                             MainMenuId = 0,
                             SortId = 4,
@@ -674,11 +715,11 @@ namespace Persistence.Migrations
                         {
                             Id = 5,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "code",
                             MainMenuId = 0,
                             SortId = 5,
@@ -689,11 +730,11 @@ namespace Persistence.Migrations
                         {
                             Id = 6,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "setting",
                             MainMenuId = 0,
                             SortId = 6,
@@ -704,11 +745,11 @@ namespace Persistence.Migrations
                         {
                             Id = 7,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "tool",
                             MainMenuId = 0,
                             SortId = 7,
@@ -719,11 +760,11 @@ namespace Persistence.Migrations
                         {
                             Id = 8,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "menu",
                             MainMenuId = 5,
                             SortId = 1,
@@ -734,11 +775,11 @@ namespace Persistence.Migrations
                         {
                             Id = 9,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "role",
                             MainMenuId = 6,
                             SortId = 1,
@@ -749,11 +790,11 @@ namespace Persistence.Migrations
                         {
                             Id = 10,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Link = "user",
                             MainMenuId = 6,
                             SortId = 2,
@@ -797,188 +838,188 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "NA – Not Applicable",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "mother – somebody’s female parent",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "parent – somebody’s father or mother",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 4,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "son – somebody’s male child",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 5,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "daughter – somebody’s female child",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 6,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "husband – the man who a woman is married to",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 7,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "wife – the woman who a man is married to",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 8,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "spouse – somebody married to another person; husband or wife",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 9,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "brother – a boy or man who has the same parents as another person",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 10,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "sister – a girl or woman who has the same parents as another person",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 11,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "sibling – a brother or sister",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 12,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "elder brother/ sister – a brother/ sister who is older than you",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 13,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "younger brother / sister – brother / sister who is younger than you",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 14,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "grandfather – somebody’s parent’s father",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 15,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "grandmother – somebody’s parent’s mother",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 16,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "father – somebody’s male parent",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         },
                         new
                         {
                             Id = 17,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325),
                             Description = "Other",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 258, DateTimeKind.Local).AddTicks(393)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 211, DateTimeKind.Local).AddTicks(4325)
                         });
                 });
 
@@ -1015,34 +1056,34 @@ namespace Persistence.Migrations
                         {
                             Id = 1,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 254, DateTimeKind.Local).AddTicks(401),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 201, DateTimeKind.Local).AddTicks(4272),
                             Description = "Admin",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 256, DateTimeKind.Local).AddTicks(408)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924)
                         },
                         new
                         {
                             Id = 2,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924),
                             Description = "User",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924)
                         },
                         new
                         {
                             Id = 3,
                             CreatedBy = 0,
-                            CreatedDate = new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394),
+                            CreatedDate = new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924),
                             Description = "Viewer",
                             IsActive = true,
                             IsVisible = true,
                             LastModifiedBy = 0,
-                            LastModifiedDate = new DateTime(2020, 8, 25, 15, 53, 50, 257, DateTimeKind.Local).AddTicks(394)
+                            LastModifiedDate = new DateTime(2020, 8, 31, 10, 14, 29, 209, DateTimeKind.Local).AddTicks(2924)
                         });
                 });
 
@@ -1268,8 +1309,7 @@ namespace Persistence.Migrations
 
                     b.HasOne("Persistence_Layer.Models.Relationship", "Relationship")
                         .WithMany()
-                        .HasForeignKey("RelationshipId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("RelationshipId");
                 });
 
             modelBuilder.Entity("Persistence_Layer.Models.AccountType", b =>

@@ -27,12 +27,12 @@ namespace Service_Layer.Services
 
             entityToSave.AccountNo = accountType.ShortName 
                 + DateTime.Today.Year.ToString()
-                + DateTime.Today.Month.ToString()
-                + DateTime.Today.Day.ToString()
-                + DateTime.Today.Hour.ToString()
-                + DateTime.Today.Minute.ToString()
-                + DateTime.Today.Second.ToString()
-                + DateTime.Today.Millisecond.ToString();
+                + DateTime.Today.Month.ToString().PadLeft(2,'0')
+                + DateTime.Today.Day.ToString().PadLeft(2, '0')
+                + DateTime.Now.Hour.ToString().PadLeft(2, '0')
+                + DateTime.Now.Minute.ToString().PadLeft(2, '0')
+                + DateTime.Now.Second.ToString().PadLeft(2, '0')
+                + DateTime.Now.Millisecond.ToString().PadLeft(4, '0');
 
             entityToSave.IsActive = true;
             entityToSave.IsVisible = true;
