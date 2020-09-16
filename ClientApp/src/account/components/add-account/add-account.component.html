@@ -1,3 +1,179 @@
-<p>
-  add works!
-</p>
+<section>
+  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <mat-tab-group mat-stretch-tabs>
+      <mat-tab label="Information">
+        <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+
+          <mat-form-field>
+            <input matInput [placeholder]="filteredClientIsLoadingLabel" [matAutocomplete]="auto"
+              formControlName="selectedClient" />
+          </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let client of filteredClients" [value]="client">
+              <span>{{ client.name }}</span>
+            </mat-option>
+          </mat-autocomplete>
+
+          <mat-form-field>
+            <mat-label>Account Type</mat-label>
+            <mat-select formControlName="selectedAccountType">
+              <mat-option *ngFor="let actype of accountTypes" [value]="actype.id">
+                {{ actype.description }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="
+          !accountForm.get('selectedAccountType').valid &&
+          accountForm.get('selectedAccountType').touched
+        ">
+              <mat-error *ngIf="accountForm.get('selectedAccountType').errors['required']">Account Type is required.
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Maximum length is 100">
+            <input type="text" #firstname formControlName="firstName" placeholder="First Name" matInput />
+            <mat-hint align="end">{{ firstname.value.length }} /100</mat-hint>
+            <mat-error *ngIf="
+          !accountForm.get('firstName').valid &&
+          accountForm.get('firstName').touched
+        ">
+              <mat-error *ngIf="accountForm.get('firstName').errors['required']">First Name is required.</mat-error>
+              <mat-error *ngIf="accountForm.get('firstName').errors['minlength']">Minium length is 4.</mat-error>
+              <mat-error *ngIf="accountForm.get('firstName').errors['maxlength']">Maximum length is 100.</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Maximum length is 100">
+            <input type="text" #middlename formControlName="middleName" placeholder="Middle Name" matInput />
+            <mat-hint align="end">{{ middlename.value.length }} /100</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Maximum length is 100">
+            <input type="text" #lastname formControlName="lastName" placeholder="Last Name" matInput />
+            <mat-hint align="end">{{ lastname.value.length }} /100</mat-hint>
+            <mat-error *ngIf="
+          !accountForm.get('lastName').valid &&
+          accountForm.get('lastName').touched
+        ">
+              <mat-error *ngIf="accountForm.get('lastName').errors['required']">Last Name is required.</mat-error>
+              <mat-error *ngIf="accountForm.get('lastName').errors['minlength']">Minium length is 4.</mat-error>
+              <mat-error *ngIf="accountForm.get('lastName').errors['maxlength']">Maximum length is 100.</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Maximum length is 100">
+            <input type="email" #email formControlName="email" placeholder="Email" matInput />
+            <mat-hint align="end">{{ email.value.length }} /50</mat-hint>
+            <mat-error *ngIf="
+          !accountForm.get('email').valid && accountForm.get('email').touched
+        ">
+              <mat-error *ngIf="accountForm.get('email').errors['required']">Email is required.</mat-error>
+              <mat-error *ngIf="accountForm.get('email').errors['email']">Valid email address is required.</mat-error>
+              <mat-error *ngIf="accountForm.get('email').errors['maxlength']">Maximum length is 100.</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Maximum length is 20">
+            <input type="text" #phone formControlName="phone" placeholder="Phone" matInput />
+            <mat-hint align="end">{{ phone.value.length }}/20</mat-hint>
+            <mat-error *ngIf="
+          !accountForm.get('phone').valid && accountForm.get('phone').touched
+        ">
+              <mat-error *ngIf="accountForm.get('phone').errors['maxlength']">Maximum length is 20.</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          
+        </div>
+      </mat-tab>
+      <mat-tab label="Address">
+        <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+
+          <mat-form-field hintLabel="Maximum length is 100">
+            <input type="text" #address1 formControlName="address1" placeholder="Address 1" matInput />
+            <mat-hint align="end">{{ address1.value.length }} /100</mat-hint>
+            <mat-error *ngIf="
+            !accountForm.get('address1').valid && accountForm.get('address1').touched
+          ">
+              <mat-error *ngIf="accountForm.get('address1').errors['maxlength']">Maximum length is 100.</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+
+
+          <mat-form-field hintLabel="Maximum length is 100">
+            <input type="text" #address2 formControlName="address2" placeholder="Address 2" matInput />
+            <mat-hint align="end">{{ address2.value.length }} /100</mat-hint>
+            <mat-error *ngIf="
+            !accountForm.get('address2').valid && accountForm.get('address2').touched
+          ">
+              <mat-error *ngIf="accountForm.get('address2').errors['maxlength']">Maximum length is 100.</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select formControlName="setectedState">
+              <mat-option *ngFor="let state of states" [value]="state.shortName">
+                {{ state.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Maximum length is 5">
+            <input type="text" #zipCode formControlName="zipCode" placeholder="Zip Code" matInput />
+            <mat-hint align="end">{{ zipCode.value.length }}/2</mat-hint>
+            <mat-error *ngIf="
+            !accountForm.get('zipCode').valid && accountForm.get('zipCode').touched
+          ">
+              <mat-error *ngIf="accountForm.get('zipCode').errors['minlength']">Minium length is 5.</mat-error>
+              <mat-error *ngIf="accountForm.get('zipCode').errors['maxlength']">Maximum length is 5.</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+      <mat-tab label="Relationship">
+        <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+
+          <div fxLayoutAlign="start">
+            <mat-checkbox formControlName="isMain" labelPosition="before" color="primary">Is Primary Account
+            </mat-checkbox>
+          </div>
+
+          <mat-form-field>
+            <mat-label>Relationship</mat-label>
+            <mat-select formControlName="selectedRelationship">
+              <mat-option *ngFor="let relationship of relationships" [value]="relationship.id">
+                {{ relationship.description }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+      <mat-tab label="Information">
+        <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+          <mat-form-field hintLabel="Maximum length is 400">
+            <textarea type="text" #description formControlName="description" placeholder="Description"
+              matInput></textarea>
+            <mat-hint align="end">{{ description.value.length }} /400</mat-hint>
+            <mat-error *ngIf="
+              !accountForm.get('description').valid && accountForm.get('description').touched
+            ">
+              <mat-error *ngIf="accountForm.get('description').errors['maxlength']">Maximum length is 400.</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field hintLabel="Maximum length is 400">
+            <textarea type="text" #note formControlName="note" placeholder="Note" matInput></textarea>
+            <mat-hint align="end">{{ note.value.length }} /400</mat-hint>
+            <mat-error *ngIf="
+              !accountForm.get('note').valid && accountForm.get('note').touched
+            ">
+              <mat-error *ngIf="accountForm.get('note').errors['maxlength']">Maximum length is 400.</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+</section>

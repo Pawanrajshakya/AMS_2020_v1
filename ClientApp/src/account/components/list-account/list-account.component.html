@@ -1,3 +1,25 @@
-<p>
-  list-account works!
-</p>
+<mat-toolbar color="accent">
+  <mat-toolbar-row fxLayout="row"
+                   fxLayoutAlign="space-around center"
+                   fxLayoutGap="10px">
+    <div fxFlex="30">
+      <span>Account</span>
+    </div>
+    <div fxFlex="70"
+         fxLayout="row"
+         fxLayoutAlign="end center"
+         fxLayoutGap="10px">
+      <span><button mat-flat-button
+                color="primary"
+                type="button"
+                (click)="onAddNew()"
+                matTooltip="Add menu">Add New</button></span>
+      <span><button mat-flat-button
+                color="primary"
+                type="button"
+                (click)="onExport()"
+                matTooltip="Export">Export</button></span>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br>

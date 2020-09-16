@@ -2,36 +2,33 @@ import { Injectable } from "@angular/core";
 import { Base } from "src/_services/base";
 import { environment } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
+import { IAccountType } from "../models/accountType-data";
 import { Observable } from "rxjs";
-import { IAccount } from "../models/account-data";
 
 @Injectable({
   providedIn: "root",
 })
-export class AccountService extends Base {
+export class AccountTypeService extends Base {
   private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {
     super();
   }
 
-  getById(id: number): Observable<IAccount> {
+  getById(id: number): Observable<IAccountType> {
     if (id === 0) {
-      const account: IAccount = {
+      const accountType: IAccountType = {
         id: 0,
       };
       return new Observable((observe) => {
-        observe.next(account);
+        observe.next(accountType);
       });
     } else {
-      return this.http.get<IAccount>(this.baseUrl + "account/" + id);
+      return this.http.get<IAccountType>(this.baseUrl + "account/" + id);
     }
   }
 
-  export() {
-    return this.http.post(this.baseUrl + "report/accountreport/excel", null, {
-      observe: "response",
-      responseType: "blob",
-    });
+  get(): Observable<IAccountType[]> {
+    return this.http.get<IAccountType[]>(this.baseUrl + "accountType");
   }
 }
