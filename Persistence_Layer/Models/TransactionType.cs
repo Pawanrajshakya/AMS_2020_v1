@@ -1,15 +1,11 @@
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Persistence_Layer.Models
 {
     public class TransactionType : Audit
     {
+        [StringLength(100)]
         public string Description { get; set; }
-
-        [ForeignKey("AccountId")]
-        public Account Account { get; set; }
-        public int AccountId { get; set; }
-
-        public string ShortName { get; set; }
+        public int SortId { get; set; }
     }
 }

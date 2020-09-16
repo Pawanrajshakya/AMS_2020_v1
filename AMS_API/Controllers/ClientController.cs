@@ -24,6 +24,12 @@ namespace API.Controllers
         {
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            return Ok(await _serviceManager.Client.Get(id));
+        }
+
         [HttpGet("search/{name}/{top}")]
         public IActionResult Search(string name, int top = 5)
         {

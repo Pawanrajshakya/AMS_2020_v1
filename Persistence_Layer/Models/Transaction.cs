@@ -7,17 +7,13 @@ namespace Persistence_Layer.Models
 {
     public class Transaction : Audit, ITransaction
     {
-        //[Required(ErrorMessage = "Date is required.")]
         public DateTime TransactionDate { get; set; }
-
-        //[Range(1, 100000000,
-        //ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public decimal Amount { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(200)]
         public string Description1 { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(400)]
         public string Description2 { get; set; }
 
         [ForeignKey("TransactionTypeId")]
@@ -30,5 +26,7 @@ namespace Persistence_Layer.Models
         
         public int AccountId { get; set; }
 
+        [StringLength(20)]
+        public string TranId { get; set; }
     }
 }

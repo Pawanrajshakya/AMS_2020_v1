@@ -35,14 +35,17 @@ namespace Persistence_Layer.Repository
 
         public IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate)
         {
-            return _dbContext.Set<TEntity>().Where(predicate);
+            return _dbContext.Set<TEntity>().Where(predicate).AsNoTracking();
         }
 
         public IQueryable<TEntity> GetAll()
         {
             try
             {
-                return  _dbContext.Set<TEntity>().AsQueryable();
+                return  _dbContext
+                    .Set<TEntity>()
+                    .AsQueryable()
+                    .AsNoTracking();
             }
             catch (Exception e)
             {
@@ -67,12 +70,12 @@ namespace Persistence_Layer.Repository
 
         public async Task<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return await _dbContext.Set<TEntity>().FirstOrDefaultAsync(predicate);
+            return await _dbContext.Set<TEntity>().AsNoTracking().FirstOrDefaultAsync(predicate);
         }
         
         public async Task<bool> Exists(Expression<Func<TEntity, bool>> predicate)
         {
-            if (await _dbContext.Set<TEntity>().AnyAsync(predicate))
+            if (await _dbContext.Set<TEntity>().AsNoTracking().AnyAsync(predicate))
                 return true;
 
             return false;

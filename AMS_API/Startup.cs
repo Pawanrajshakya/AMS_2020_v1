@@ -14,6 +14,7 @@ using Persistence_Layer.Data;
 using Persistence_Layer.Interfaces;
 using Service_Layer.Interface;
 using Service_Layer.Services;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -23,7 +24,7 @@ namespace AMS_API
     {
         public IConfiguration Configuration { get; }
         public string ConnectionString { get; }
-        
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -41,7 +42,23 @@ namespace AMS_API
                 options.AutomaticAuthentication = false;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            /*
+             * Because EF Core will automatically fix-up navigation properties, 
+             * you can end up with cycles in your object graph. 
+             * For example, loading a blog and its related posts will result in a blog object that 
+             * references a collection of posts.Each of those posts will have a reference back to the blog.
+             * Some serialization frameworks do not allow such cycles.
+             * For example, Json.NET will throw the following exception if a cycle is encountered.
+             * Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'Blog' 
+             * with type 'MyApplication.Models.Blog'.
+             * https://docs.microsoft.com/en-us/ef/core/querying/related-data
+           */
+
+            services
+               .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling
+                = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<DataContext>(x => x.UseSqlServer(ConnectionString));
 
@@ -98,6 +115,17 @@ namespace AMS_API
                 };
 
             });
+
+            //services.Configure<ApiBehaviorOptions>((options) =>
+            //{
+            //    options.InvalidModelStateResponseFactory = ((actionContext) =>
+            //    {
+            //        ValidationProblemDetails error = actionContext.ModelState.Where(e => e.Value.Errors.Count > 0)
+            //        .Select(e => new ValidationProblemDetails(actionContext.ModelState)).FirstOrDefault();
+
+            //        return new BadRequestObjectResult(error);
+            //    });
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

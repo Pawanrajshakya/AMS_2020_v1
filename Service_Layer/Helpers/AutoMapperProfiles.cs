@@ -97,11 +97,19 @@ namespace Service_Layer.Helpers
 
             //TransactionType
             CreateMap<Persistence_Layer.Models.TransactionType, Service_Layer.Dtos.TransactionTypeDto>();
-            CreateMap<Service_Layer.Dtos.TransactionTypeToSaveDto, Persistence_Layer.Models.TransactionType>()
-            .ForMember(x => x.Account, opt => opt.Ignore());
-            CreateMap<Service_Layer.Dtos.TransactionTypeToEditDto, Persistence_Layer.Models.TransactionType>()
-            .ForMember(x => x.Account, opt => opt.Ignore()); CreateMap<Service_Layer.Dtos.TransactionTypeDto, Persistence_Layer.Models.TransactionType>()
-             .ForMember(x => x.Account, opt => opt.Ignore());
+            CreateMap<Service_Layer.Dtos.TransactionTypeDto, Persistence_Layer.Models.TransactionType>();
+            CreateMap<Service_Layer.Dtos.TransactionTypeToSaveDto, Persistence_Layer.Models.TransactionType>();
+            CreateMap<Service_Layer.Dtos.TransactionTypeToEditDto, Persistence_Layer.Models.TransactionType>();
+
+            //TransactionCode
+            CreateMap<Persistence_Layer.Models.TransactionCode, Service_Layer.Dtos.TransactionCodeDto>();
+            CreateMap<Service_Layer.Dtos.TransactionCodeDto, Persistence_Layer.Models.TransactionCode>();
+
+            //TransactionTypeDetail
+            CreateMap<Persistence_Layer.Models.TransactionTypeDetail, Service_Layer.Dtos.TransactionTypeDetailDto>();
+            CreateMap<Service_Layer.Dtos.TransactionTypeDetailDto, Persistence_Layer.Models.TransactionTypeDetail>();
+            CreateMap<Service_Layer.Dtos.TransactionTypeDetailToSaveDto, Persistence_Layer.Models.TransactionTypeDetail>();
+            CreateMap<Service_Layer.Dtos.TransactionTypeDetailToEditDto, Persistence_Layer.Models.TransactionTypeDetail>();
         }
     }
 }

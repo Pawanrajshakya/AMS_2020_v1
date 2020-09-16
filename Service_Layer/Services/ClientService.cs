@@ -13,8 +13,12 @@ namespace Service_Layer.Services
 {
     public class ClientService : BaseService, IClientService
     {
-        public ClientService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+        private readonly IAccountService _AccountService;
+
+        public ClientService(IUnitOfWork unitOfWork, IMapper mapper, IAccountService accountService) 
+            : base(unitOfWork, mapper)
         {
+            _AccountService = accountService;
         }
 
         public async Task<int> Add(ClientToSaveDto entity)
@@ -43,8 +47,14 @@ namespace Service_Layer.Services
             var entity = await this._unitOfWork.Client.Get(id);
             if (!entity.IsVisible)
                 return null;
-            ClientDto ClientDto = _mapper.Map<ClientDto>(entity);
-            return ClientDto;
+            ClientDto clientDto = _mapper.Map<ClientDto>(entity);
+            clientDto.MainAccountId = await _AccountService.GetMainAccountId(entity.Id);
+            return clientDto;
+        }
+
+        public List<ClientDto> Get()
+        {
+            throw new NotImplementedException();
         }
 
         // public async Task<IEnumerable<ClientDto>> GetAll()

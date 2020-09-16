@@ -24,7 +24,7 @@ namespace Service_Layer.Services
         {
             byte[] passwordHash, passwordSalt;
 
-            if (await _unitOfWork.User.Exists(x=>x.UserName == entity.Username))
+            if (await _unitOfWork.User.Exists(x => x.UserName == entity.Username))
                 throw new Exception("Username already exists.");
 
             User userToCreate = _mapper.Map<User>(entity);
@@ -32,7 +32,7 @@ namespace Service_Layer.Services
             CreatePasswordHash(entity.Username, out passwordHash, out passwordSalt);
             userToCreate.PasswordHash = passwordHash;
             userToCreate.PasswordSalt = passwordSalt;
-            // userToCreate.IsActive = true;
+
             userToCreate.IsVisible = true;
             if (CurrentUser.User != null)
                 userToCreate.CreatedBy = CurrentUser.User.Id;
@@ -68,11 +68,17 @@ namespace Service_Layer.Services
 
         public async Task<UsersDto> Get(Param parameter)
         {
-            PagedList<UserDto> userDtos = new PagedList<UserDto>();
+            UsersDto usersDto = new UsersDto();
+
+            /* 
+             * Eager loading means that the related data is loaded from the database as part of the initial query.
+             * You can use the Include / ThenInclude method to specify related data to be included in query results. 
+             */
 
             var queryable = _unitOfWork.User.GetAll()
                 .Include(x => x.UserRole)
-                .Where(x => x.IsVisible == true);
+                .ThenInclude(x => x.Role)
+                .Where(x => 1 == 1);
 
             switch (parameter.SearchBy.ToLower())
             {
@@ -132,26 +138,24 @@ namespace Service_Layer.Services
                     break;
             }
 
-            var users = await PagedList<User>.CreateAsync(queryable, parameter.PageNumber, parameter.PageSize);
+            var pagedUsers = await PagedList<User>.CreateAsync(queryable, parameter.PageNumber, parameter.PageSize);
 
-            if (users != null)
+            if (pagedUsers != null)
             {
-                foreach (var user in users)
+                foreach (var user in pagedUsers)
                 {
                     UserDto userDto = _mapper.Map<UserDto>(user);
                     foreach (var role in user.UserRole)
                     {
-                        userDto.UserRole.Add(await _roleService.Get(role.RoleId));
+                        userDto.UserRole.Add(_mapper.Map<RoleDto>(role.Role));
                     }
-                    userDtos.Add(userDto);
+                    usersDto.Users.Add(userDto);
                 }
             }
-            UsersDto usersDto = new UsersDto();
-            usersDto.Users = userDtos;
-            usersDto.CurrentPage = users.CurrentPage;
-            usersDto.PageSize = users.PageSize;
-            usersDto.TotalCount = users.TotalCount;
-            usersDto.TotalPages = users.TotalPages;
+            usersDto.CurrentPage = pagedUsers.CurrentPage;
+            usersDto.PageSize = pagedUsers.PageSize;
+            usersDto.TotalCount = pagedUsers.TotalCount;
+            usersDto.TotalPages = pagedUsers.TotalPages;
             return usersDto;
         }
 

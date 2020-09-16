@@ -11,7 +11,7 @@
       "NET472"
     ],
     "languageVersion": "7.3",
-    "platform": "AnyCPU",
+    "platform": "x86",
     "allowUnsafe": false,
     "warningsAsErrors": false,
     "optimize": true,

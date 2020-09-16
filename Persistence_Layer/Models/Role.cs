@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Persistence_Layer.Models
 {
@@ -8,6 +9,8 @@ namespace Persistence_Layer.Models
         {
             UserRole = new List<UserRole>();
         }
+
+        [StringLength(50)]
         public string Description { get; set; }
         public virtual ICollection<UserRole> UserRole { get; set; }
     }

@@ -15,7 +15,9 @@ namespace Persistence_Layer.Interfaces
         IRelationshipRepository Relationship { get; }
         IRoleRepository Role { get; }
         ITransactionRepository Transaction { get; }
+        ITransactionCodeRepository TransactionCode { get; }
         ITransactionTypeRepository TransactionType { get; }
+        ITransactionTypeDetaiRepository TransactionTypeDetail { get; }
         IUserRepository User { get; }
         IUserHistoryRepository UserHistory { get; }
         IUserActivityRepository UserActivity { get; }

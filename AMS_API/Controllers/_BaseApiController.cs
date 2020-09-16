@@ -72,7 +72,7 @@ namespace API.Controllers
             // }
             // return InternalServerError(exception);
             
-            BadRequest(exception.Message);
+            BadRequest(exception.Message + " " + exception.GetType().Name);
 
         protected static T GetSortBy<T>(string sortBy, T defaultSortBy)
         {

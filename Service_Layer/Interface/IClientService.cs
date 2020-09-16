@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Service_Layer.Interface
 {
-    public interface IClientService : IDeleteService, 
-    IAddService<ClientToSaveDto>, 
-    IUpdateService<ClientToEditDto>
+    public interface IClientService : IDeleteService,
+    IAddService<ClientToSaveDto>,
+    IUpdateService<ClientToEditDto>,
+    IGetService<ClientDto>
     {
         List<ClientDto> SearchByName(string Name, int Top = 5);
     }

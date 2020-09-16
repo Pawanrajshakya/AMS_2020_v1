@@ -20,9 +20,11 @@ namespace Persistence_Layer.Data
         public DbSet<AccountType> AccountTypes { get; set; }
         public DbSet<Relationship> Relationships { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
+        public DbSet<TransactionCode> TransactionCodes { get; set; }
+        public DbSet<TransactionTypeDetail> TransactionTypeDetails { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public DbSet<Account> Account { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<UserHistory> UserHistories { get; set; }
         public DbSet<AccountHistory> AccountHistories { get; set; }
         public DbSet<UserActivity> UserActivities { get; set; }
@@ -44,157 +46,226 @@ namespace Persistence_Layer.Data
                 .WithMany(t => t.UserRole)
                 .HasForeignKey(pt => pt.RoleId);
 
+            modelBuilder.Entity<User>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Role>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Menu>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Business>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Client>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<AccountType>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Relationship>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Transaction>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<TransactionType>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Group>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Account>().HasQueryFilter(x => x.IsVisible);
+            modelBuilder.Entity<Image>().HasQueryFilter(x => x.IsVisible);
+
             modelBuilder.Entity<Role>().HasData(
-                new Role { Id = 1, Description = "Admin" },
-                new Role { Id = 2, Description = "User" },
-                new Role { Id = 3, Description = "Viewer" }
+                new Role { Id = 1, Description = "Admin", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Role { Id = 2, Description = "User", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Role { Id = 3, Description = "Viewer", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now }
             );
 
             modelBuilder.Entity<Business>().HasData(
-                new Business { Id = 1, Address1 = "Address 1", Address2 = "Address 2", Name = "Your Business Name", State = "zz", ZipCode = "zzzzz" }
+                new Business { Id = 1, Address1 = "Address 1", Address2 = "Address 2", Name = "Your Business Name", State = "zz", ZipCode = "zzzzz", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now }
             );
 
             modelBuilder.Entity<Group>().HasData(
-                new Group { Id = 1, Description = "External Group" },
-                new Group { Id = 2, Description = "Internal Group" },
-                new Group { Id = 3, Description = "Other Group" }
+                new Group { Id = 1, Description = "External Group", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Group { Id = 2, Description = "Internal Group", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Group { Id = 3, Description = "Other Group", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now }
             );
 
             modelBuilder.Entity<Menu>().HasData(
-                new Menu { Id = 1, Title = "Home", SortId = 1, MainMenuId = 0, Link = "home", UserRoles = "1,2,3" },
-                new Menu { Id = 2, Title = "Account", SortId = 2, MainMenuId = 0, Link = "account", UserRoles = "1,2,3" },
-                new Menu { Id = 3, Title = "Transaction", SortId = 3, MainMenuId = 0, Link = "transaction", UserRoles = "1,2,3" },
-                new Menu { Id = 4, Title = "Reports", SortId = 4, MainMenuId = 0, Link = "report", UserRoles = "1,2,3" },
-                new Menu { Id = 5, Title = "Code System", SortId = 5, MainMenuId = 0, Link = "code", UserRoles = "1" },
-                new Menu { Id = 6, Title = "Setting", SortId = 6, MainMenuId = 0, Link = "setting", UserRoles = "1" },
-                new Menu { Id = 7, Title = "Tools", SortId = 7, MainMenuId = 0, Link = "tool", UserRoles = "1" },
-                new Menu { Id = 8, Title = "Menu", SortId = 1, MainMenuId = 5, Link = "menu", UserRoles = "1" },
-                new Menu { Id = 9, Title = "Role", SortId = 1, MainMenuId = 6, Link = "role", UserRoles = "1" },
-                new Menu { Id = 10, Title = "User", SortId = 2, MainMenuId = 6, Link = "user", UserRoles = "1" }
+                new Menu { Id = 1, Title = "Home", SortId = 1, MainMenuId = 0, Link = "home", UserRoles = "1,2,3", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 2, Title = "Account", SortId = 2, MainMenuId = 0, Link = "account", UserRoles = "1,2,3", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 3, Title = "Transaction", SortId = 3, MainMenuId = 0, Link = "transaction", UserRoles = "1,2,3", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 4, Title = "Reports", SortId = 4, MainMenuId = 0, Link = "report", UserRoles = "1,2,3", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 5, Title = "Code System", SortId = 5, MainMenuId = 0, Link = "code", UserRoles = "1", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 6, Title = "Setting", SortId = 6, MainMenuId = 0, Link = "setting", UserRoles = "1", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 7, Title = "Tools", SortId = 7, MainMenuId = 0, Link = "tool", UserRoles = "1", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 8, Title = "Menu", SortId = 1, MainMenuId = 5, Link = "menu", UserRoles = "1", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 9, Title = "Role", SortId = 1, MainMenuId = 6, Link = "role", UserRoles = "1", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Menu { Id = 10, Title = "User", SortId = 2, MainMenuId = 6, Link = "user", UserRoles = "1", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now }
             );
 
             modelBuilder.Entity<Relationship>().HasData(
                 new Relationship
                 {
                     Id = 1,
-                    Description = "NA – Not Applicable"
+                    Description = "~",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 2,
-                    Description = "mother – somebody’s female parent"
+                    Description = "Mother",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 3,
-                    Description = "parent – somebody’s father or mother"
+                    Description = "Parent",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 4,
-                    Description = "son – somebody’s male child"
+                    Description = "Son",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 5,
-                    Description = "daughter – somebody’s female child"
+                    Description = "Daughter",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 6,
-                    Description = "husband – the man who a woman is married to"
+                    Description = "Husband",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 7,
-                    Description = "wife – the woman who a man is married to"
+                    Description = "Wife",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 8,
-                    Description = "spouse – somebody married to another person; husband or wife"
+                    Description = "Spouse",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
                 new Relationship
                 {
                     Id = 9,
-                    Description = "brother – a boy or man who has the same parents as another person"
+                    Description = "Brother",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 10,
-                    Description = "sister – a girl or woman who has the same parents as another person"
+                    Description = "Sister",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 11,
-                    Description = "sibling – a brother or sister"
+                    Description = "Sibling",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 12,
-                    Description = "elder brother/ sister – a brother/ sister who is older than you"
+                    Description = "Elder brother/sister",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 13,
-                    Description = "younger brother / sister – brother / sister who is younger than you"
+                    Description = "Younger brother/sister",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 14,
-                    Description = "grandfather – somebody’s parent’s father"
+                    Description = "Grandfather",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 15,
-                    Description = "grandmother – somebody’s parent’s mother"
+                    Description = "Grandmother",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 },
 
                 new Relationship
                 {
                     Id = 16,
-                    Description = "father – somebody’s male parent"
+                    Description = "Father",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
 
                 },
                 new Relationship
                 {
                     Id = 17,
-                    Description = "Other"
+                    Description = "Other",
+                    IsActive = true,
+                    IsVisible = true,
+                    CreatedDate = DateTime.Now
                 });
 
             modelBuilder.Entity<AccountType>().HasData(
-                new AccountType { Id = 1, Description = "Normal Account", GroupId = 1, SortId = 1, ShortName = "NA" },
-                new AccountType { Id = 2, Description = "Cash Account", GroupId = 2, SortId = 2, ShortName = "CA" },
-                new AccountType { Id = 3, Description = "Bank Account", GroupId = 2, SortId = 3, ShortName = "BA" },
-                new AccountType { Id = 4, Description = "Income Account", GroupId = 2, SortId = 4, ShortName = "IA" },
-                new AccountType { Id = 5, Description = "Expense Account", GroupId = 2, SortId = 5, ShortName = "EA" },
-                new AccountType { Id = 6, Description = "Payable Account", GroupId = 2, SortId = 6, ShortName = "PA" },
-                new AccountType { Id = 7, Description = "Receivable Account", GroupId = 2, SortId = 7, ShortName = "RA" },
-                new AccountType { Id = 8, Description = "Assets Account", GroupId = 2, SortId = 8, ShortName = "AA" },
-                new AccountType { Id = 9, Description = "Liabilities Account", GroupId = 2, SortId = 9, ShortName = "LA" },
-                new AccountType { Id = 10, Description = "Other Account", GroupId = 3, SortId = 10, ShortName = "OA" }
+                new AccountType { Id = 1, Description = "Normal Account", GroupId = 1, SortId = 1, ShortName = "NA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 2, Description = "Cash Account", GroupId = 2, SortId = 2, ShortName = "CA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 3, Description = "Bank Account", GroupId = 2, SortId = 3, ShortName = "BA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 4, Description = "Income Account", GroupId = 2, SortId = 4, ShortName = "IA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 5, Description = "Expense Account", GroupId = 2, SortId = 5, ShortName = "EA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 6, Description = "Payable Account", GroupId = 2, SortId = 6, ShortName = "PA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 7, Description = "Receivable Account", GroupId = 2, SortId = 7, ShortName = "RA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 8, Description = "Assets Account", GroupId = 2, SortId = 8, ShortName = "AA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 9, Description = "Liabilities Account", GroupId = 2, SortId = 9, ShortName = "LA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new AccountType { Id = 10, Description = "Other Account", GroupId = 3, SortId = 10, ShortName = "OA", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now }
             );
 
             modelBuilder.Entity<Client>().HasData(
-                new Client { Id = 1, BusinessId = 1, Name = "Internal Client" },
-                new Client { Id = 2, BusinessId = 1, Name = "Default Client" }
+                new Client { Id = 1, BusinessId = 1, Name = "Internal Client", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now },
+                new Client { Id = 2, BusinessId = 1, Name = "Default Client", IsActive = true, IsVisible = true, CreatedDate = DateTime.Now }
                 );
 
             modelBuilder.Entity<Control>().HasData(
-                new Control { Id = 1, BusinessId = 1,  AccountNoLength = 20, CurrentDate = DateTime.Today, ReportFolderName = @"Reports\" }
+                new Control { Id = 1, BusinessId = 1, AccountNoLength = 20, CurrentDate = DateTime.Today, ReportFolderName = @"Reports\" }
+                );
+
+            modelBuilder.Entity<TransactionCode>().HasData(
+                new TransactionCode { TranCode = 100, Description = "Credit Tran Code", IsDebit = false },
+                new TransactionCode { TranCode = 200, Description = "Debit Tran Code", IsDebit = true }
                 );
         }
     }

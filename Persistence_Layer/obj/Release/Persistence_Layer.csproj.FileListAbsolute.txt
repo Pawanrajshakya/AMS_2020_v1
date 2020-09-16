@@ -56,3 +56,4 @@ C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\P
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence_Layer.csproj.CopyComplete
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence.dll
 C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence.pdb
+C:\Users\prsha\Documents\My Projects\AMS_2020_v1\Persistence_Layer\obj\Release\Persistence_Layer.csprojAssemblyReference.cache

@@ -4,7 +4,6 @@ namespace Service_Layer.Dtos
     {
         public int Id { get; set; }
         public string Description { get; set; }
-        public int AccountId { get; set; }
         public bool IsActive { get; set; }
     }
 }

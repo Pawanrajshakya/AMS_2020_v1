@@ -4,6 +4,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\prsha\Documents\My Projects\AMS_2020_v1\AMS_API\bin\Release\net472\publish\</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\WEBAPI</_PublishTargetUrl>
   </PropertyGroup>
 </Project>

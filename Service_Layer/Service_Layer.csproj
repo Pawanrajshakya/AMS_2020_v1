@@ -130,6 +130,7 @@
   <ItemGroup>
     <Compile Include="Dtos\Account\AccountDto.cs" />
     <Compile Include="Dtos\Account\AccountHistoryDto.cs" />
+    <Compile Include="Dtos\Account\AccountsDto.cs" />
     <Compile Include="Dtos\Account\AccountToEditDto.cs" />
     <Compile Include="Dtos\Account\AccountToSaveDto.cs" />
     <Compile Include="Dtos\Account\AccountTypeDto.cs" />
@@ -157,12 +158,16 @@
     <Compile Include="Dtos\Role\RolesDto.cs" />
     <Compile Include="Dtos\Role\RoleToEditDto.cs" />
     <Compile Include="Dtos\Role\RoleToSaveDto.cs" />
+    <Compile Include="Dtos\TransactionCode\TransactionCodeDto.cs" />
+    <Compile Include="Dtos\TransactionTypeDetail\TransactionTypeDetailDto.cs" />
+    <Compile Include="Dtos\TransactionTypeDetail\TransactionTypeDetailToEditDto.cs" />
+    <Compile Include="Dtos\TransactionTypeDetail\TransactionTypeDetailToSaveDto.cs" />
     <Compile Include="Dtos\Transaction\TransactionDto.cs" />
     <Compile Include="Dtos\Transaction\TransactionToEditDto.cs" />
     <Compile Include="Dtos\Transaction\TransactionToSaveDto.cs" />
-    <Compile Include="Dtos\Transaction\TransactionTypeDto.cs" />
-    <Compile Include="Dtos\Transaction\TransactionTypeToEditDto.cs" />
-    <Compile Include="Dtos\Transaction\TransactionTypeToSaveDto.cs" />
+    <Compile Include="Dtos\TransactionType\TransactionTypeDto.cs" />
+    <Compile Include="Dtos\TransactionType\TransactionTypeToEditDto.cs" />
+    <Compile Include="Dtos\TransactionType\TransactionTypeToSaveDto.cs" />
     <Compile Include="Dtos\User\UserActivityToSaveDto.cs" />
     <Compile Include="Dtos\User\UserDto.cs" />
     <Compile Include="Dtos\User\UserHistoryDto.cs" />
@@ -216,5 +221,6 @@
       <Name>Persistence_Layer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -142,15 +142,17 @@
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\ITransaction.cs" />
+    <Compile Include="Interfaces\ITransactionCodeRepository.cs" />
     <Compile Include="Interfaces\ITransactionRepository.cs" />
+    <Compile Include="Interfaces\ITransactionTypeDetaiRepository.cs" />
     <Compile Include="Interfaces\ITransactionTypeRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUserActivityRepository.cs" />
     <Compile Include="Interfaces\IUserHistoryRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="Migrations\20200831141430_Inital_Add_08312020.cs" />
-    <Compile Include="Migrations\20200831141430_Inital_Add_08312020.designer.cs">
-      <DependentUpon>20200831141430_Inital_Add_08312020.cs</DependentUpon>
+    <Compile Include="Migrations\20200916164709_Initial_db_change.cs" />
+    <Compile Include="Migrations\20200916164709_Initial_db_change.designer.cs">
+      <DependentUpon>20200916164709_Initial_db_change.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DataContextModelSnapshot.cs" />
     <Compile Include="Models\Account.cs" />
@@ -166,7 +168,9 @@
     <Compile Include="Models\Relationship.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionCode.cs" />
     <Compile Include="Models\TransactionType.cs" />
+    <Compile Include="Models\TransactionTypeDetail.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserActivity.cs" />
     <Compile Include="Models\UserHistory.cs" />
@@ -186,7 +190,9 @@
     <Compile Include="Repository\RelationshipRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RoleRepository.cs" />
+    <Compile Include="Repository\TransactionCodeRepository.cs" />
     <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="Repository\TransactionTypeDetailRepository.cs" />
     <Compile Include="Repository\TransactionTypeRepository.cs" />
     <Compile Include="Repository\UserActivityRepository.cs" />
     <Compile Include="Repository\UserHistoryRepository.cs" />
