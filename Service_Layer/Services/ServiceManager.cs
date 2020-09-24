@@ -15,7 +15,10 @@ namespace Service_Layer.Services
             IRelationshipService relationship,
             IUserActivityService userActivity,
             IMenuService menuService,
-            IReportService reportService)
+            IReportService reportService,
+            ITransactionCodeService transactionCode,
+            ITransactionTypeService transactionType,
+            ITransactionService transaction)
         {
             this.Business = business;
             this.Role = role;
@@ -28,6 +31,9 @@ namespace Service_Layer.Services
             this.UserActivity = userActivity;
             this.Menu = menuService;
             this.Report = reportService;
+            this.TransactionCode = transactionCode;
+            this.TransactionType = transactionType;
+            this.Transaction = transaction;
         }
 
         public IBusinessService Business { get; private set; }
@@ -43,5 +49,6 @@ namespace Service_Layer.Services
         public IUserService User { get; private set; }
         public IUserActivityService UserActivity { get; private set; }
         public IReportService Report { get; private set; }
+        public ITransactionCodeService TransactionCode { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Service_Layer.Interface
         IUserService User { get; }
         IUserActivityService UserActivity { get; }
         IReportService Report { get; }
+        ITransactionCodeService TransactionCode { get; }
     }
 
 

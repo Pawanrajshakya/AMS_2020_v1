@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Persistence_Layer.Interfaces;
 using Persistence_Layer.Models;
 using Service_Layer.Dtos;
@@ -42,14 +43,13 @@ namespace Service_Layer.Services
             return roleDto;
         }
 
-        public List<RoleDto> Get()
+        public async Task<List<RoleDto>> Get()
         {
             List<RoleDto> roleDtos = new List<RoleDto>();
 
-            var roles = _unitOfWork.Role.GetAll()
-                .Where(x => x.IsVisible == true)
+            var roles = await _unitOfWork.Role.GetAll()
                 .OrderBy(x => x.Description)
-                .ToList();
+                .ToListAsync();
             
             if (roles != null)
             {

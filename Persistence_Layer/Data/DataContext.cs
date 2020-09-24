@@ -264,8 +264,8 @@ namespace Persistence_Layer.Data
                 );
 
             modelBuilder.Entity<TransactionCode>().HasData(
-                new TransactionCode { TranCode = 100, Description = "Credit Tran Code", IsDebit = false },
-                new TransactionCode { TranCode = 200, Description = "Debit Tran Code", IsDebit = true }
+                new TransactionCode { TranCode = 100, Description = "Credit (+)", IsDebit = false },
+                new TransactionCode { TranCode = 200, Description = "Debit (-)", IsDebit = true }
                 );
         }
     }

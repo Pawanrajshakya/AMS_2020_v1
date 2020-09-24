@@ -191,6 +191,7 @@
     <Compile Include="Interface\IRoleService.cs" />
     <Compile Include="Interface\IService.cs" />
     <Compile Include="Interface\IServiceManager.cs" />
+    <Compile Include="Interface\ITransactionCodeService.cs" />
     <Compile Include="Interface\ITransactionService.cs" />
     <Compile Include="Interface\ITransactionTypeService.cs" />
     <Compile Include="Interface\IUserActivityService.cs" />
@@ -206,6 +207,9 @@
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\ServiceManager.cs" />
+    <Compile Include="Services\TransactionCodeService.cs" />
+    <Compile Include="Services\TransactionService.cs" />
+    <Compile Include="Services\TransactionTypeService.cs" />
     <Compile Include="Services\UserActivityService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\_BaseService.cs" />

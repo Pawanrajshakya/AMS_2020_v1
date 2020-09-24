@@ -52,7 +52,7 @@ namespace Service_Layer.Services
             return clientDto;
         }
 
-        public List<ClientDto> Get()
+        public Task<List<ClientDto>> Get()
         {
             throw new NotImplementedException();
         }

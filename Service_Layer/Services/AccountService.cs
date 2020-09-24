@@ -310,10 +310,12 @@ namespace Service_Layer.Services
             return accounts;
         }
 
-        public List<AccountDto> Get()
+        public async Task<List<AccountDto>> Get()
         {
             List<AccountDto> AccountDtos = new List<AccountDto>();
-            var Accountes = (this._unitOfWork.Account.GetAll()).Where(x => x.IsVisible);
+            
+            var Accountes = await this._unitOfWork.Account.GetAll().ToListAsync();
+
             if (Accountes != null)
             {
                 foreach (var Account in Accountes)

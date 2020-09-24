@@ -359,7 +359,7 @@ CREATE TABLE [TransactionTypeDetails] (
     [IsActive] bit NOT NULL,
     [RowVersion] rowversion NULL,
     [TransactionTypeId] int NOT NULL,
-    [AccountId] int NOT NULL,
+    [AccountId] int NULL,
     [TranCode] int NOT NULL,
     CONSTRAINT [PK_TransactionTypeDetails] PRIMARY KEY ([Id]),
     CONSTRAINT [FK_TransactionTypeDetails_Accounts_AccountId] FOREIGN KEY ([AccountId]) REFERENCES [Accounts] ([Id]),

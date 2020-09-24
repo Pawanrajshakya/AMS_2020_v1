@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Persistence_Layer.Interfaces;
 using Persistence_Layer.Models;
 using Service_Layer.Dtos;
@@ -57,14 +58,13 @@ namespace Service_Layer.Services
             return menuDto;
         }
 
-        public List<MenuDto> Get()
+        public async Task<List<MenuDto>> Get()
         {
             List<MenuDto> menuDtos = new List<MenuDto>();
 
-            var menus = _unitOfWork.Menu.GetAll()
-                .Where(x => x.IsVisible == true)
+            var menus = await _unitOfWork.Menu.GetAll()
                 .OrderBy(x => x.Title)
-                .ToList();
+                .ToListAsync();
 
             if (menus != null)
             {

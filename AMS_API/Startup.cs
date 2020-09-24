@@ -94,6 +94,12 @@ namespace AMS_API
 
             services.AddScoped<IReportService, ReportService>();
 
+            services.AddScoped<ITransactionCodeService, TransactionCodeService>();
+
+            services.AddScoped<ITransactionTypeService, TransactionTypeService>();
+
+            services.AddScoped<ITransactionService, TransactionService>();
+
             services.AddScoped<CustomActionFilter>();
 
 

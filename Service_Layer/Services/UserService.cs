@@ -324,7 +324,7 @@ namespace Service_Layer.Services
             return false;
         }
 
-        public List<UserDto> Get()
+        public Task<List<UserDto>> Get()
         {
             throw new NotImplementedException();
         }

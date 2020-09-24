@@ -6,6 +6,7 @@ using API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Service_Layer.Dtos;
 using Service_Layer.Interface;
 
 namespace API.Controllers
@@ -26,6 +27,5 @@ namespace API.Controllers
         {
             return Ok(await _serviceManager.AccountType.Get());
         }
-
     }
 }

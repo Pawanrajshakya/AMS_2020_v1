@@ -9,7 +9,7 @@ namespace Persistence_Layer.Models
         public int TransactionTypeId { get; set; }
         [ForeignKey("AccountId")]
         public Account Account { get; set; }
-        public int AccountId { get; set; }
+        public int? AccountId { get; set; }
         [ForeignKey("TranCode")]
         public TransactionCode TransactionCode { get; set; }
         public int TranCode { get; set; }
