@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Persistence_Layer.Interfaces;
+using Persistence_Layer.Models;
 using Service_Layer.Dtos;
 using Service_Layer.Interface;
 using System;
@@ -12,10 +13,10 @@ namespace Service_Layer.Services
 {
     public class TransactionService : BaseService, ITransactionService
     {
-        private readonly ITransactionTypeService TransactionTypeService;
+        private readonly ITransactionTypeService _TransactionTypeService;
         public TransactionService(IUnitOfWork unitOfWork, IMapper mapper, ITransactionTypeService transactionTypeService) : base(unitOfWork, mapper)
         {
-            TransactionTypeService = transactionTypeService;
+            _TransactionTypeService = transactionTypeService;
         }
 
         public async Task<int> Add(TransactionToSaveDto entity)
@@ -26,6 +27,28 @@ namespace Service_Layer.Services
             if (account == null)
             {
                 throw new System.Exception("Invalid account.");
+            }
+
+            var transactionType = await _TransactionTypeService.Get(entity.TransactionTypeId);
+
+            if (transactionType == null)
+            {
+                throw new System.Exception("Invalid transaction type.");
+            }
+
+            if (entity.Amount <= 0)
+            {
+                throw new System.Exception("Invalid Amount.");
+            }
+
+            List<Transaction> transactions = new List<Transaction>();
+
+            foreach(var transactionDetail in transactionType.Details)
+            {
+                Transaction newTransaction = new Transaction
+                {
+                    AccountId = (transactionDetail.AccountId == 0) ? entity.AccountId : transactionDetail.AccountId
+                };
             }
 
             return 1;
